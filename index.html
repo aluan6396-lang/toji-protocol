@@ -1,162 +1,133 @@
 <!doctype html>
-
-<html lang="pt-BR">  
-<head>  
-<meta charset="utf-8">  
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">  
-<meta name="theme-color" content="#080808">  
-<title>TOJI PROTOCOL — 5X SEMANA • FULL HD</title>  
-<style>  
-:root{  
- --bg:#090909;--panel:#111;--panel2:#171717;--line:#292929;--text:#f5f5f5;--muted:#a1a1a1;  
- --accent:#e3262e;--accent2:#ff4b51;--ok:#35c759;--radius:20px;  
-}  
-*{box-sizing:border-box}html{background:var(--bg)}body{margin:0;background:var(--bg);color:var(--text);  
- font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}  
-button,input{font:inherit}.app{max-width:760px;margin:auto;min-height:100vh;padding-bottom:86px}  
-.top{position:sticky;top:0;z-index:20;background:rgba(9,9,9,.88);backdrop-filter:blur(18px);border-bottom:1px solid #1d1d1d}  
-.topin{height:62px;padding:0 18px;display:flex;align-items:center;justify-content:space-between}  
-.brand{font-size:12px;font-weight:900;letter-spacing:.2em}.topbadge{font-size:9px;font-weight:900;letter-spacing:.13em;  
- border:1px solid #363636;border-radius:999px;padding:7px 9px;color:#ddd}  
-.view{display:none}.view.active{display:block}  
-.hero{margin:16px;padding:24px 20px;border-radius:26px;background:  
- linear-gradient(145deg,#151515 0%,#0c0c0c 65%);border:1px solid #292929;position:relative;overflow:hidden}  
-.hero:after{content:"";position:absolute;width:180px;height:180px;border-radius:50%;right:-80px;top:-70px;background:rgba(227,38,46,.16);filter:blur(3px)}  
-.kicker{font-size:9px;font-weight:900;letter-spacing:.2em;color:#aaa}.hero h1{font-size:34px;line-height:.98;margin:9px 0}  
-.hero p{color:#aaa;font-size:12px;line-height:1.55;max-width:500px;margin:0}.herorow{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}  
-.pill{font-size:10px;font-weight:800;background:#1c1c1c;border:1px solid #303030;border-radius:10px;padding:8px 10px}  
-.progressbox{margin-top:16px;background:#0a0a0a;border:1px solid #272727;border-radius:15px;padding:12px}  
-.progressline{height:7px;background:#252525;border-radius:999px;overflow:hidden;margin-top:8px}.progressfill{height:100%;width:0;background:var(--accent);transition:.25s}  
-.sectionpad{padding:0 16px}.sectiontitle{display:flex;justify-content:space-between;align-items:end;margin:22px 2px 10px}  
-.sectiontitle h2{font-size:18px;margin:0}.sectiontitle span{font-size:9px;color:#777;font-weight:800;letter-spacing:.1em}  
-.daygrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.daycard{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:15px;  
- cursor:pointer;transition:.15s}.daycard:active{transform:scale(.98)}.daynum{font-size:9px;color:#e75a60;font-weight:900;letter-spacing:.16em}  
-.daycard h3{font-size:14px;margin:7px 0 4px}.daycard p{font-size:10px;color:#888;margin:0;line-height:1.45}.daycount{margin-top:12px;font-size:9px;color:#bbb;font-weight:800}  
-.continue{margin-top:12px;width:100%;border:0;background:var(--accent);color:#fff;border-radius:14px;padding:13px;font-weight:900;font-size:11px;cursor:pointer}  
-.protocolhead{padding:20px 16px 5px}.protocolhead h1{font-size:28px;margin:0 0 5px}.protocolhead p{color:#888;font-size:11px;margin:0}  
-.daydetail{padding:16px}.back{border:1px solid #333;background:#111;color:#ddd;border-radius:11px;padding:9px 11px;font-size:10px;font-weight:800;cursor:pointer}  
-.dayhero{margin:13px 0 16px;padding:18px;border:1px solid #292929;border-radius:20px;background:#121212}.dayhero .daynum{color:#e75a60}  
-.dayhero h1{font-size:23px;margin:5px 0}.dayhero p{font-size:11px;color:#888;margin:0}  
-.exercise-list{display:grid;gap:10px}.exercise-card{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:13px;  
- display:grid;grid-template-columns:58px 1fr auto;gap:12px;align-items:center;cursor:pointer}.thumb{width:58px;height:58px;border-radius:13px;background:#202020;border:1px solid #303030;display:grid;place-items:center;color:#777;font-size:8px;font-weight:900;text-align:center;overflow:hidden}.thumb img{width:100%;height:100%;object-fit:cover;display:block}.thumb.noimg:after{content:"IMAGEM";font-size:8px;color:#666}  
-.exercise-card h3{font-size:13px;margin:0 0 4px}.exercise-card p{font-size:9px;color:#888;margin:0}.exercise-meta{text-align:right}.exercise-meta b{font-size:11px}.exercise-meta span{display:block;color:#777;font-size:8px;margin-top:3px}  
-.search{margin:14px 16px 8px;background:#121212;border:1px solid #292929;border-radius:13px;padding:11px}.search input{width:100%;border:0;outline:0;background:none;color:#fff;font-size:11px}  
-.filters{display:flex;gap:7px;overflow:auto;padding:0 16px 10px;scrollbar-width:none}.filters::-webkit-scrollbar{display:none}.filter{white-space:nowrap;background:#111;border:1px solid #2d2d2d;color:#aaa;border-radius:999px;padding:7px 10px;font-size:9px;font-weight:800}.filter.active{background:#fff;color:#090909;border-color:#fff}  
-.exercise-detail{padding:16px}.exercise-detail .back{margin-bottom:13px}.eyebrow{font-size:9px;color:#e75a60;font-weight:900;letter-spacing:.15em}.exercise-detail h1{font-size:28px;line-height:1.03;margin:6px 0}.technical{font-size:10px;color:#888}  
-.imagebox{margin:16px 0;background:#151515;border:1px solid #2c2c2c;border-radius:22px;overflow:hidden;min-height:270px;position:relative}  
-.imagebox img{width:100%;height:100%;min-height:270px;display:block;object-fit:cover;background:#202020}  
-.image-note{position:absolute;left:10px;right:10px;bottom:10px;background:rgba(0,0,0,.78);border:1px solid #333;border-radius:11px;padding:9px;font-size:9px;color:#aaa}  
-.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}.statbox{background:#121212;border:1px solid #292929;border-radius:13px;padding:11px}.statbox b{display:block;font-size:13px}.statbox span{font-size:8px;color:#777;text-transform:uppercase}  
-.info{margin-top:10px;background:#121212;border:1px solid #292929;border-radius:17px;padding:14px}.info h3{font-size:9px;letter-spacing:.13em;margin:0 0 6px;color:#aaa}.info p{font-size:11px;line-height:1.55;color:#ccc;margin:0}  
-.complete{width:100%;margin-top:12px;border:1px solid #3b3b3b;background:#191919;color:#fff;border-radius:14px;padding:14px;font-size:11px;font-weight:900;cursor:pointer}.complete.done{background:var(--ok);border-color:var(--ok);color:#061108}  
-.progressview{padding:20px 16px}.progressview h1{font-size:28px;margin:0 0 5px}.progressview>p{font-size:11px;color:#888}.bigprogress{background:#121212;border:1px solid #292929;border-radius:20px;padding:17px;margin-top:15px}.bigprogress strong{font-size:30px}.bar{height:9px;background:#282828;border-radius:999px;overflow:hidden;margin:12px 0}.bar i{display:block;height:100%;background:var(--accent);width:0}.weekgrid{display:grid;grid-template-columns:repeat(5,1fr);gap:7px;margin-top:12px}.weekday{background:#121212;border:1px solid #292929;border-radius:12px;text-align:center;padding:10px 3px;font-size:9px;color:#777}.weekday.done{border-color:#3a7d4a;color:#d8f4de}.bottom{position:fixed;z-index:30;bottom:0;left:50%;transform:translateX(-50%);width:min(760px,100%);height:72px;background:rgba(10,10,10,.94);backdrop-filter:blur(18px);border-top:1px solid #252525;display:grid;grid-template-columns:repeat(3,1fr);padding:7px 10px calc(7px + env(safe-area-inset-bottom))}  
-.navbtn{background:none;border:0;color:#666;font-size:9px;font-weight:900;cursor:pointer}.navbtn span{display:block;font-size:19px;margin-bottom:3px}.navbtn.active{color:#fff}.empty{padding:30px 10px;text-align:center;color:#777;font-size:11px}  
-@media(min-width:650px){.daygrid{grid-template-columns:repeat(5,1fr)}.exercise-card{grid-template-columns:72px 1fr auto}.thumb{width:72px;height:72px}.imagebox{min-height:420px}.imagebox img{min-height:420px}}  /* FULL HD / MOBILE APP PRESENTATION */
-:root{--content-max:1920px}
-body{min-width:320px}
-.app{width:100%;max-width:1920px;margin:0 auto;min-height:100vh}
-main{width:100%;max-width:1920px;margin:0 auto}
-.exercise-list{max-width:1800px;margin:0 auto;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
-.exercise-card{min-width:0}
-.thumb{width:100%;height:240px;overflow:hidden;display:flex;align-items:center;justify-content:center;background:#111;border-radius:14px}
-.thumb img{display:block;width:100%;height:100%;object-fit:contain;object-position:center;image-rendering:auto;background:#111}
-.exercise-detail{max-width:1400px;margin:0 auto}
-.exercise-detail .exercise-image,.exercise-detail img{width:100%;max-width:1400px;height:auto;max-height:1080px;object-fit:contain;object-position:center;display:block;margin:0 auto;background:#fff;border-radius:16px}
-.dayhero,.homehero,.progressview,.protocolview{max-width:1800px;margin-left:auto;margin-right:auto}
-@media (max-width:900px){.exercise-list{grid-template-columns:1fr}.thumb{height:220px}}
-@media (min-width:1600px){.thumb{height:320px}}
-
-/* Imagens/GIFs: enquadramento consistente em Full HD e celular */
-.exercise-card .thumb{overflow:hidden;display:flex;align-items:center;justify-content:center;background:#f5f5f5;}
-.exercise-card .thumb img{width:100%;height:100%;display:block;object-fit:contain;object-position:center;background:#f5f5f5;}
-.imagebox{overflow:hidden;background:#f5f5f5;border-radius:18px;min-height:360px;display:flex;align-items:center;justify-content:center;}
-.imagebox img{width:100%;max-width:1100px;max-height:720px;height:auto;object-fit:contain;display:block;background:#f5f5f5;}
-.noimg{background:repeating-linear-gradient(45deg,#f3f3f3,#f3f3f3 10px,#e9e9e9 10px,#e9e9e9 20px)!important;}
-@media(max-width:700px){.imagebox{min-height:260px}.imagebox img{max-height:520px}.exercise-card .thumb{min-height:90px}}
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0b0b0b">
+<link rel="manifest" href="./manifest.json">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>TOJI PROTOCOL — 5X SEMANA</title>
+<style>
+:root{--bg:#090909;--panel:#111;--line:#292929;--text:#f5f5f5;--muted:#999;--red:#e3262e;--ok:#35c759}
+*{box-sizing:border-box}html,body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif}
+body{min-width:320px}.app{max-width:1920px;margin:auto;min-height:100vh;padding-bottom:82px}
+.top{position:sticky;top:0;z-index:20;background:#090909ee;border-bottom:1px solid #222;backdrop-filter:blur(18px)}
+.topin{height:62px;padding:0 18px;display:flex;align-items:center;justify-content:space-between}.brand{font-size:12px;font-weight:900;letter-spacing:.2em}
+.badge{font-size:9px;font-weight:900;border:1px solid #363636;border-radius:999px;padding:7px 9px;color:#ddd}
+.view{display:none}.view.active{display:block}.hero{margin:16px;padding:24px 20px;border:1px solid #292929;border-radius:26px;background:linear-gradient(145deg,#151515,#0c0c0c)}
+.kicker,.daynum,.eyebrow{font-size:9px;font-weight:900;letter-spacing:.16em;color:#e75a60}.hero h1{font-size:34px;line-height:1;margin:9px 0}.hero p,.protocolhead p,.dayhero p{color:#999;font-size:12px;line-height:1.5}
+.pills{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}.pill{font-size:10px;font-weight:800;background:#1c1c1c;border:1px solid #303030;border-radius:10px;padding:8px 10px}
+.progressbox,.bigprogress{margin-top:16px;background:#0a0a0a;border:1px solid #272727;border-radius:15px;padding:12px}.progressline,.bar{height:8px;background:#252525;border-radius:999px;overflow:hidden;margin-top:8px}.progressfill,.bar i{display:block;height:100%;width:0;background:var(--red)}
+.continue{margin-top:12px;width:100%;border:0;background:var(--red);color:white;border-radius:14px;padding:13px;font-weight:900}
+.sectionpad,.daydetail,.exercise-detail,.progressview{padding:0 16px}.sectiontitle{display:flex;justify-content:space-between;align-items:end;margin:22px 2px 10px}.sectiontitle h2{font-size:18px;margin:0}
+.daygrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.daycard{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:15px;cursor:pointer}.daycard h3{font-size:14px;margin:7px 0 4px}.daycard p{font-size:10px;color:#888;margin:0}.daycount{margin-top:12px;font-size:9px;color:#bbb;font-weight:800}
+.protocolhead{padding:20px 16px 5px}.protocolhead h1,.progressview h1{font-size:28px;margin:0 0 5px}.back{margin-top:16px;border:1px solid #333;background:#111;color:#ddd;border-radius:11px;padding:9px 11px;font-size:10px;font-weight:800}
+.dayhero{margin:13px 0 16px;padding:18px;border:1px solid #292929;border-radius:20px;background:#121212}.dayhero h1{font-size:23px;margin:5px 0}
+.exercise-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;max-width:1800px;margin:auto}.exercise-card{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:13px;display:grid;grid-template-columns:120px 1fr auto;gap:12px;align-items:center;cursor:pointer}
+.thumb{width:120px;height:105px;border-radius:13px;background:#1d1d1d;border:1px solid #303030;display:grid;place-items:center;color:#777;font-size:8px;font-weight:900;text-align:center;padding:8px}.exercise-card h3{font-size:13px;margin:0 0 4px}.exercise-card p{font-size:9px;color:#888;margin:0}.exercise-meta{text-align:right}.exercise-meta b{font-size:11px}.exercise-meta span{display:block;color:#777;font-size:8px;margin-top:3px}
+.exercise-detail{max-width:1400px;margin:auto}.exercise-detail h1{font-size:28px;line-height:1.03;margin:6px 0}.technical{font-size:10px;color:#888}.imagebox{margin:16px 0;background:#f5f5f5;border:1px solid #2c2c2c;border-radius:22px;min-height:260px;display:grid;place-items:center;color:#777;text-align:center}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}.statbox,.info{background:#121212;border:1px solid #292929;border-radius:13px;padding:11px}.statbox b{display:block;font-size:13px}.statbox span{font-size:8px;color:#777;text-transform:uppercase}.info{margin-top:10px;border-radius:17px;padding:14px}.info h3{font-size:9px;letter-spacing:.13em;margin:0 0 6px;color:#aaa}.info p{font-size:11px;line-height:1.55;color:#ccc;margin:0}
+.complete{width:100%;margin-top:12px;border:1px solid #3b3b3b;background:#191919;color:#fff;border-radius:14px;padding:14px;font-size:11px;font-weight:900}.complete.done{background:var(--ok);color:#061108}
+.weekgrid{display:grid;grid-template-columns:repeat(5,1fr);gap:7px;margin-top:12px}.weekday{background:#121212;border:1px solid #292929;border-radius:12px;text-align:center;padding:10px 3px;font-size:9px;color:#777}.weekday.done{border-color:#3a7d4a;color:#d8f4de}
+.bottom{position:fixed;z-index:30;bottom:0;left:50%;transform:translateX(-50%);width:min(760px,100%);height:72px;background:#0a0a0af2;border-top:1px solid #252525;display:grid;grid-template-columns:repeat(3,1fr);padding:7px 10px}.navbtn{background:none;border:0;color:#666;font-size:9px;font-weight:900}.navbtn span{display:block;font-size:19px;margin-bottom:3px}.navbtn.active{color:#fff}
+@media(max-width:900px){.exercise-list{grid-template-columns:1fr}.exercise-card{grid-template-columns:100px 1fr auto}.thumb{width:100px;height:90px}}@media(max-width:600px){.exercise-card{grid-template-columns:82px 1fr auto}.thumb{width:82px;height:82px}}
 </style>
+</head>
+<body>
+<div class="app">
+<header class="top"><div class="topin"><div class="brand">TOJI PROTOCOL</div><div class="badge">5X / SEMANA</div></div></header>
+<main>
+<section id="home" class="view active"><div class="hero"><div class="kicker">V-TAPER • DENSIDADE • PROGRESSÃO</div><h1>Treino de alta precisão.</h1><p>Seu protocolo organizado como um aplicativo: escolha o dia, abra cada exercício e registre sua execução.</p><div class="pills"><span class="pill">05 DIAS</span><span class="pill">48 EXERCÍCIOS</span><span class="pill">RIR</span></div><div class="progressbox"><div style="display:flex;justify-content:space-between;font-size:10px;font-weight:800"><span>PROGRESSO</span><span id="homeProgress">0%</span></div><div class="progressline"><div class="progressfill" id="homeFill"></div></div></div><button class="continue" id="continueBtn">COMEÇAR PROTOCOLO</button></div><div class="sectionpad"><div class="sectiontitle"><h2>Seu protocolo</h2><span>5 DIAS</span></div><div id="homeDays" class="daygrid"></div></div></section>
+<section id="protocol" class="view"><div class="protocolhead"><h1>Protocolo</h1><p>Selecione um dia para abrir seus exercícios.</p></div><div class="sectionpad"><div id="protocolDays" class="daygrid"></div></div></section>
+<section id="day" class="view"><div class="daydetail"><button class="back" onclick="go('protocol')">← VOLTAR</button><div id="dayContent"></div></div></section>
+<section id="exercise" class="view"><div class="exercise-detail"><button class="back" onclick="backToDay()">← VOLTAR</button><div id="exerciseContent"></div></div></section>
+<section id="progress" class="view"><div class="progressview"><h1>Progresso</h1><p>Acompanhe os exercícios concluídos neste aparelho.</p><div class="bigprogress"><strong id="bigPct">0%</strong><div class="bar"><i id="bigBar"></i></div><div style="font-size:10px;color:#888"><span id="doneCount">0</span> de <span id="totalCount">48</span> exercícios concluídos</div></div><div class="sectiontitle"><h2>Dias</h2></div><div id="weekGrid" class="weekgrid"></div></div></section>
+</main>
+<nav class="bottom"><button class="navbtn active" data-view="home"><span>⌂</span>INÍCIO</button><button class="navbtn" data-view="protocol"><span>▦</span>PROTOCOLO</button><button class="navbtn" data-view="progress"><span>◔</span>PROGRESSO</button></nav>
+</div>
+<script>
+const workouts=[
+{day:"01",name:"COSTAS + BÍCEPS",focus:"Largura, espessura e braços",items:[
+["Puxada alta pronada","Lat Pulldown","4×6–10","1–3","90–120s","Costas","Latíssimo do dorso","Puxe os cotovelos para baixo, mantendo o tronco estável."],
+["Remada articulada","Machine Row","3×8–12","1–3","90–120s","Costas","Romboides + trapézio médio","Leve os cotovelos para trás sem perder o controle da volta."],
+["Puxada neutra","Neutral Lat Pulldown","3×8–12","1–3","90–120s","Costas","Latíssimo do dorso","Pense em levar os cotovelos para o bolso."],
+["Remada unilateral","One Arm Cable Row","3×10–12","1–2","75–90s","Costas","Latíssimo + romboides","Alongue na frente e reme sem girar o tronco."],
+["Pullover na polia","Cable Pullover","2×12–15","1–2","60–90s","Costas","Latíssimo do dorso","Mantenha os braços quase estendidos e mova pelo ombro."],
+["Rosca inclinada","Incline Dumbbell Curl","3×8–12","1–2","75–90s","Bíceps","Cabeça longa","Deixe o braço atrás do tronco e suba sem balançar."],
+["Rosca Scott","Preacher Curl","3×8–12","1–2","75–90s","Bíceps","Bíceps + braquial","Apoie o braço e controle completamente a descida."],
+["Rosca martelo","Hammer Curl","2×10–15","1–2","60–75s","Bíceps","Braquial + braquiorradial","Pegada neutra e cotovelos próximos ao corpo."]]},
+{day:"02",name:"PEITO + OMBROS + TRÍCEPS",focus:"Peitoral, deltoides e três cabeças do tríceps",items:[
+["Supino inclinado","Incline Press","4×6–10","1–3","90–120s","Peito","Peitoral clavicular","Desça com controle e empurre mantendo as escápulas estáveis."],
+["Supino máquina","Chest Press","3×8–12","1–2","90–120s","Peito","Peitoral maior","Ajuste o assento para as alças ficarem próximas ao meio do peito."],
+["Crucifixo na máquina","Pec Deck","3×10–15","1–2","60–90s","Peito","Peitoral maior","Abra até sentir alongamento confortável e feche sem impulso."],
+["Desenvolvimento","Shoulder Press","3×6–10","1–3","90–120s","Ombros","Deltoide anterior + lateral","Pressione para cima sem transformar o movimento em balanço."],
+["Elevação lateral","Lateral Raise","4×10–20","0–2","60–75s","Ombros","Deltoide lateral","Conduza pelos cotovelos e pare antes de perder a posição."],
+["Crucifixo inverso","Reverse Pec Deck","3×12–20","0–2","60–75s","Ombros","Deltoide posterior","Abra os braços mantendo o pescoço relaxado."],
+["Tríceps testa","Lying Triceps Extension","3×8–12","1–2","75–90s","Tríceps","Cabeça longa + lateral + medial","Flexione o cotovelo mantendo o braço relativamente fixo."],
+["Extensão acima da cabeça","Overhead Cable Extension","3×10–15","0–2","60–90s","Tríceps","Cabeça longa","Deixe o cotovelo apontado para frente e estenda sem abrir."],
+["Pushdown com corda","Rope Pushdown","2×10–15","0–2","60–90s","Tríceps","Lateral + medial","Estenda até o final e mantenha os ombros quietos."]]},
+{day:"03",name:"PERNAS + ABDÔMEN",focus:"Quadríceps, posteriores, glúteos e core",items:[
+["Agachamento / Hack Squat","Hack Squat","4×6–10","1–3","120s","Pernas","Quadríceps + glúteos","Desça com controle e mantenha o pé inteiro apoiado."],
+["Leg Press","Leg Press","3×8–12","1–2","90–120s","Pernas","Quadríceps + glúteos","Desça até a amplitude que preserve sua posição pélvica."],
+["Cadeira extensora","Leg Extension","3×10–15","0–2","60–75s","Pernas","Quadríceps","Estenda controlando a volta e sem chutar a carga."],
+["Stiff / RDL","Romanian Deadlift","3×6–10","1–3","120s","Pernas","Posteriores + glúteos","Leve o quadril para trás mantendo a coluna neutra."],
+["Mesa flexora","Lying Leg Curl","3×10–15","0–2","60–90s","Pernas","Posteriores","Flexione o joelho sem tirar o quadril do banco."],
+["Hip Thrust","Hip Thrust","2–3×8–12","1–2","90s","Pernas","Glúteos","Finalize com extensão do quadril sem hiperestender a lombar."],
+["Panturrilha em pé","Standing Calf Raise","3×8–15","0–2","60–75s","Pernas","Gastrocnêmio + sóleo","Faça uma pausa no alto e alongue com controle."],
+["Crunch na polia","Cable Crunch","3×10–15","1–2","60s","Abdômen","Reto abdominal","Pense em aproximar costelas e pelve, não apenas puxar com os braços."],
+["Elevação de pernas","Hanging Leg Raise","3×8–15","1–2","60s","Abdômen","Reto abdominal + flexores","Evite balançar e controle a descida."],
+["Prancha","Plank","2×30–60s","—","45–60s","Abdômen","Core","Mantenha costelas e pelve organizadas durante todo o tempo."]]},
+{day:"04",name:"COSTAS + OMBROS + BÍCEPS",focus:"V-taper e densidade",items:[
+["Barra fixa / puxada","Pull Up","4×6–10","1–3","90–120s","Costas","Latíssimo do dorso","Comece com escápulas ativas e leve o peito em direção à barra."],
+["Remada apoiada no peito","Chest Supported Row","3×8–12","1–2","90–120s","Costas","Trapézio médio + romboides","Use o apoio para eliminar balanço e concentrar na remada."],
+["Puxada unilateral","Single Arm Lat Pulldown","3×10–12","1–2","75–90s","Costas","Latíssimo","Puxe o cotovelo para baixo e ligeiramente para trás."],
+["Pullover","Cable Pullover","2×12–15","1–2","60–90s","Costas","Latíssimo","Controle o alongamento e não transforme em tríceps."],
+["Elevação lateral na polia","Cable Lateral Raise","4×12–20","0–2","60s","Ombros","Deltoide lateral","Mantenha tensão contínua e movimento limpo."],
+["Elevação lateral máquina","Machine Lateral Raise","3×12–20","0–2","60s","Ombros","Deltoide lateral","Suba com os cotovelos e não com as mãos."],
+["Crucifixo inverso","Rear Delt Fly","3×12–20","0–2","60s","Ombros","Deltoide posterior","Abra sem elevar os ombros em direção às orelhas."],
+["Rosca direta","Barbell Curl","3×6–10","1–2","75–90s","Bíceps","Bíceps braquial","Mantenha o cotovelo estável e evite inclinar o tronco."],
+["Rosca Bayesian","Bayesian Curl","3×10–15","0–2","60–75s","Bíceps","Cabeça longa","Deixe o braço atrás do corpo e mantenha tensão no alongamento."],
+["Rosca martelo","Hammer Curl","2×10–15","0–2","60–75s","Bíceps","Braquial + braquiorradial","Suba sem girar a mão."]]},
+{day:"05",name:"PEITO + BRAÇOS + PERNAS",focus:"Volume complementar e acabamento",items:[
+["Supino inclinado","Incline Press","3×6–10","1–3","90–120s","Peito","Peitoral clavicular","Desça com controle e mantenha o peito alto."],
+["Supino reto","Flat Bench Press","3×8–12","1–2","90–120s","Peito","Peitoral maior","Mantenha escápulas firmes e punhos alinhados."],
+["Crossover","Cable Crossover","2×12–15","0–2","60–75s","Peito","Peitoral maior","Feche os braços em arco e contraia o peito."],
+["Paralelas / máquina assistida","Assisted Dip","3×6–12","1–2","90s","Peito + tríceps","Peitoral inferior + tríceps","Desça com controle e mantenha os ombros confortáveis."],
+["Extensão acima da cabeça","Overhead Triceps Extension","3×10–15","0–2","60–90s","Tríceps","Cabeça longa","Use amplitude controlada e mantenha o cotovelo organizado."],
+["Pushdown","Cable Pushdown","2×10–15","0–2","60–90s","Tríceps","Lateral + medial","Estenda os cotovelos sem movimentar os ombros."],
+["Rosca Scott","Preacher Curl","3×8–12","1–2","75–90s","Bíceps","Bíceps + braquial","Apoie o braço e controle a descida."],
+["Rosca inclinada","Incline Dumbbell Curl","3×8–12","1–2","75–90s","Bíceps","Cabeça longa","Mantenha os braços atrás do tronco e evite impulso."],
+["Cadeira extensora","Leg Extension","3×10–15","0–2","60–75s","Pernas","Quadríceps","Estenda com controle e retorne sem soltar a carga."],
+["Mesa flexora","Lying Leg Curl","3×10–15","0–2","60–90s","Pernas","Posteriores","Mantenha o quadril apoiado e controle a volta."],
+["Panturrilha","Standing Calf Raise","3×8–15","0–2","60–75s","Pernas","Gastrocnêmio + sóleo","Suba completamente, pause no alto e desça sob controle."]]}
+];
 
-<link rel="manifest" href="manifest.json"><meta name="theme-color" content="#0b0b0b"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><meta name="apple-mobile-web-app-title" content="TOJI PROTOCOL">  
-</head>  
-<body>  
-<div class="app">  
-<header class="top"><div class="topin"><div class="brand">TOJI PROTOCOL</div><div class="topbadge">5X / SEMANA</div></div></header>  <main>  
-<section id="home" class="view active">  
-  <div class="hero">  
-    <div class="kicker">V-TAPER • DENSIDADE • PROGRESSÃO</div>  
-    <h1>Treino de alta precisão.</h1>  
-    <p>Seu protocolo organizado como um aplicativo: escolha o dia, abra cada exercício e registre sua execução.</p>  
-    <div class="herorow"><span class="pill">05 DIAS</span><span class="pill">48 EXERCÍCIOS</span><span class="pill">RIR</span></div>  
-    <div class="progressbox"><div style="display:flex;justify-content:space-between;font-size:10px;font-weight:800"><span>PROGRESSO</span><span id="homeProgress">0%</span></div><div class="progressline"><div class="progressfill" id="homeFill"></div></div></div>  
-    <button class="continue" id="continueBtn">COMEÇAR PROTOCOLO</button>  
-  </div>  
-  <div class="sectionpad"><div class="sectiontitle"><h2>Seu protocolo</h2><span>5 DIAS</span></div><div id="homeDays" class="daygrid"></div></div>  
-</section>  <section id="protocol" class="view">  
-  <div class="protocolhead"><h1>Protocolo</h1><p>Selecione um dia para abrir seus exercícios.</p></div>  
-  <div class="sectionpad"><div id="protocolDays" class="daygrid"></div></div>  
-</section>  <section id="day" class="view">  
-  <div class="daydetail"><button class="back" onclick="go('protocol')">← VOLTAR</button><div id="dayContent"></div></div>  
-</section>  <section id="exercise" class="view">  
-  <div class="exercise-detail"><button class="back" onclick="backToDay()">← VOLTAR</button><div id="exerciseContent"></div></div>  
-</section>  <section id="progress" class="view">  
-  <div class="progressview"><h1>Progresso</h1><p>Acompanhe os exercícios concluídos no aparelho.</p>  
-    <div class="bigprogress"><strong id="bigPct">0%</strong><div class="bar"><i id="bigBar"></i></div><div style="font-size:10px;color:#888"><span id="doneCount">0</span> de <span id="totalCount">48</span> exercícios concluídos</div></div>  
-    <div class="sectiontitle"><h2>Dias</h2></div><div id="weekGrid" class="weekgrid"></div>  
-  </div>  
-</section>  
-</main>  <nav class="bottom">  
-<button class="navbtn active" data-view="home"><span>⌂</span>INÍCIO</button>  
-<button class="navbtn" data-view="protocol"><span>▦</span>PROTOCOLO</button>  
-<button class="navbtn" data-view="progress"><span>◔</span>PROGRESSO</button>  
-</nav>  
-</div>  <script>  
-const workouts=[  
-{day:"01",name:"COSTAS + BÍCEPS",focus:"Largura, espessura e braços",items:[  
-["Puxada alta pronada","Lat Pulldown","4×6–10","1–3","90–120s","Costas","Latíssimo do dorso","Puxe os cotovelos para baixo, mantendo o tronco estável.","Lat_Pulldown"],  
-["Remada articulada","Machine Row","3×8–12","1–3","90–120s","Costas","Romboides + trapézio médio","Leve os cotovelos para trás sem perder o controle da volta.","Lever_Seated_Row"],  
-["Puxada neutra","Neutral Lat Pulldown","3×8–12","1–3","90–120s","Costas","Latíssimo do dorso","Pense em levar os cotovelos para o bolso.","Close_Grip_Lat_Pulldown"],  
-["Remada unilateral","One Arm Cable Row","3×10–12","1–2","75–90s","Costas","Latíssimo + romboides","Alongue na frente e reme sem girar o tronco.","Cable_One_Arm_Row"],  
-["Pullover na polia","Cable Pullover","2×12–15","1–2","60–90s","Costas","Latíssimo do dorso","Mantenha os braços quase estendidos e mova pelo ombro.","Cable_Pullover"],  
-["Rosca inclinada","Incline Dumbbell Curl","3×8–12","1–2","75–90s","Bíceps","Cabeça longa","Deixe o braço atrás do tronco e suba sem balançar.","Incline_Dumbbell_Curl"],  
-["Rosca Scott","Preacher Curl","3×8–12","1–2","75–90s","Bíceps","Bíceps + braquial","Apoie o braço e controle completamente a descida.","Preacher_Curl"],  
-["Rosca martelo","Hammer Curl","2×10–15","1–2","60–75s","Bíceps","Braquial + braquiorradial","Pegada neutra e cotovelos próximos ao corpo.","Hammer_Curl"]  
-]},  
-{day:"02",name:"PEITO + OMBROS + TRÍCEPS",focus:"Peitoral, deltoides e três cabeças do tríceps",items:[  
-["Supino inclinado","Incline Press","4×6–10","1–3","90–120s","Peito","Peitoral clavicular","Desça com controle e empurre mantendo as escápulas estáveis.","Incline_Dumbbell_Bench_Press"],  
-["Supino máquina","Chest Press","3×8–12","1–2","90–120s","Peito","Peitoral maior","Ajuste o assento para as alças ficarem próximas ao meio do peito.","Lever_Chest_Press"],  
-["Crucifixo na máquina","Pec Deck","3×10–15","1–2","60–90s","Peito","Peitoral maior","Abra até sentir alongamento confortável e feche sem impulso.","Lever_Pec_Deck_Fly"],  
-["Desenvolvimento","Shoulder Press","3×6–10","1–3","90–120s","Ombros","Deltoide anterior + lateral","Pressione para cima sem transformar o movimento em balanço.","Lever_Shoulder_Press"],  
-["Elevação lateral","Lateral Raise","4×10–20","0–2","60–75s","Ombros","Deltoide lateral","Conduza pelos cotovelos e pare antes de perder a posição.","Dumbbell_Lateral_Raise"],  
-["Crucifixo inverso","Reverse Pec Deck","3×12–20","0–2","60–75s","Ombros","Deltoide posterior","Abra os braços mantendo o pescoço relaxado.","Reverse_Pec_Deck"],  
-["Tríceps testa","Lying Triceps Extension","3×8–12","1–2","75–90s","Tríceps","Cabeça longa + lateral + medial","Flexione o cotovelo mantendo o braço relativamente fixo.","EZ_Bar_Lying_Triceps_Extension"],  
-["Extensão acima da cabeça","Overhead Cable Extension","3×10–15","0–2","60–90s","Tríceps","Cabeça longa","Deixe o cotovelo apontado para frente e estenda sem abrir.","Cable_Overhead_Triceps_Extension"],  
-["Pushdown com corda","Rope Pushdown","2×10–15","0–2","60–90s","Tríceps","Lateral + medial","Estenda até o final e mantenha os ombros quietos.","Rope_Pushdown"]  
-]},  
-{day:"03",name:"PERNAS + ABDÔMEN",focus:"Quadríceps, posteriores, glúteos e core",items:[  
-["Agachamento / Hack Squat","Hack Squat","4×6–10","1–3","120s","Pernas","Quadríceps + glúteos","Desça com controle e mantenha o pé inteiro apoiado.","Hack_Squat"],  
-["Leg Press","Leg Press","3×8–12","1–2","90–120s","Pernas","Quadríceps + glúteos","Desça até a amplitude que preserve sua posição pélvica.","Leg_Press"],  
-["Cadeira extensora","Leg Extension","3×10–15","0–2","60–75s","Pernas","Quadríceps","Estenda controlando a volta e sem chutar a carga.","Leg_Extension"],  
-["Stiff / RDL","Romanian Deadlift","3×6–10","1–3","120s","Pernas","Posteriores + glúteos","Leve o quadril para trás mantendo a coluna neutra.","Romanian_Deadlift"],  
-["Mesa flexora","Lying Leg Curl","3×10–15","0–2","60–90s","Pernas","Posteriores","Flexione o joelho sem tirar o quadril do banco.","Lying_Leg_Curl"],  
-["Hip Thrust","Hip Thrust","2–3×8–12","1–2","90s","Pernas","Glúteos","Finalize com extensão do quadril sem hiperestender a lombar.","Barbell_Hip_Thrust"],  
-["Panturrilha em pé","Standing Calf Raise","3×8–15","0–2","60–75s","Pernas","Gastrocnêmio + sóleo","Faça uma pausa no alto e alongue com controle.","Standing_Calf_Raise"],  
-["Crunch na polia","Cable Crunch","3×10–15","1–2","60s","Abdômen","Reto abdominal","Pense em aproximar costelas e pelve, não apenas puxar com os braços.","Cable_Crunch"],  
-["Elevação de pernas","Hanging Leg Raise","3×8–15","1–2","60s","Abdômen","Reto abdominal + flexores","Evite balançar e controle a descida.","Hanging_Leg_Raise"],  
-["Prancha","Plank","2×30–60s","—","45–60s","Abdômen","Core","Mantenha costelas e pelve organizadas durante todo o tempo.","Front_Plank"]  
-]},  
-{day:"04",name:"COSTAS + OMBROS + BÍCEPS",focus:"V-taper e densidade",items:[  
-["Barra fixa / puxada","Pull Up","4×6–10","1–3","90–120s","Costas","Latíssimo do dorso","Comece com escápulas ativas e leve o peito em direção à barra.","Pull_Up"],  
-["Remada apoiada no peito","Chest Supported Row","3×8–12","1–2","90–120s","Costas","Trapézio médio + romboides","Use o apoio para eliminar balanço e concentrar na remada.","Chest_Supported_Row"],  
-["Puxada unilateral","Single Arm Lat Pulldown","3×10–12","1–2","75–90s","Costas","Latíssimo","Puxe o cotovelo para baixo e ligeiramente para trás.","One_Arm_Lat_Pulldown"],  
-["Pullover","Cable Pullover","2×12–15","1–2","60–90s","Costas","Latíssimo","Controle o alongamento e não transforme em tríceps.","Straight_Arm_Pulldown"],  
-["Elevação lateral na polia","Cable Lateral Raise","4×12–20","0–2","60s","Ombros","Deltoide lateral","Mantenha tensão contínua e movimento limpo.","Cable_Lateral_Raise"],  
-["Elevação lateral máquina","Machine Lateral Raise","3×12–20","0–2","60s","Ombros","Deltoide lateral","Suba com os cotovelos e não com as mãos.","Lever_Lateral_Raise"],  
-["Crucifixo inverso","Rear Delt Fly","3×12–20","0–2","60s","Ombros","Deltoide posterior","Abra sem elevar os ombros em direção às orelhas.","Dumbbell_Rear_Delt_Fly"],  
-["Rosca direta","Barbell Curl","3×6–10","1–2","75–90s","Bíceps","Bíceps braquial","Mantenha o cotovelo estável e evite inclinar o tronco.","Barbell_Curl"],  
-["Rosca Bayesian","Bayesian Curl","3×10–15","0–2","60–75s","Bíceps","Cabeça longa","Deixe o braço atrás do corpo e mantenha tensão no alongamento.","Cable_Bayesian_Curl"],  
-["Rosca martelo","Hammer Curl","2×10–15","0–2","60–75s","Bíceps","Braquial + braquiorradial","Suba sem girar a mão.","Hammer_Curl"]  
-]},  
-{day:"05",name:"PEITO + BRAÇOS + PERNAS",focus:"Volume complementar e acabamento",items:[  
-["Supino inclinado","Incline Press","3×6–10","1–3","90–120s","Peito","Peitoral clavicular","Desça com controle e mantenha o peito alto.","Incline_Dumbbell_Bench_Press"],  
-["Supino reto","Flat Bench Press","3×8–12","1–2","90–120s","Peito","Peitoral maior","Mantenha escápulas firmes e punhos alinhados.","Barbell_Bench_Press"],  
-["Crossover","Cable Crossover","2×12–15","0–2","60–75s","Peito","Peitoral maior","Feche os braços em arco e contraia o peito.","Cable_Crossover"],  
-["Paralelas / máquina assistida","Assisted Dip","3×6–12","1–2","90s","Peito + tríceps","Peitoral inferior + tríceps","Desça com controle e mantenha os ombros confortáv
+let currentDay=0,currentExercise=0;
+const storageKey="toji-done-v1";
+let done=[];
+try{done=JSON.parse(localStorage.getItem(storageKey)||"[]");if(!Array.isArray(done))done=[]}catch(e){done=[]}
+
+function go(v){document.querySelectorAll(".view").forEach(x=>x.classList.remove("active"));document.getElementById(v).classList.add("active");document.querySelectorAll(".navbtn").forEach(x=>x.classList.toggle("active",x.dataset.view===v));scrollTo(0,0)}
+function openDay(i){currentDay=i;renderDay();go("day")}
+function openExercise(i){currentExercise=i;renderExercise();go("exercise")}
+function backToDay(){renderDay();go("day")}
+function itemId(d,i){return d+"-"+i}
+function isDone(d,i){return done.includes(itemId(d,i))}
+function toggleDone(d,i){let id=itemId(d,i);done=done.includes(id)?done.filter(x=>x!==id):[...done,id];localStorage.setItem(storageKey,JSON.stringify(done));renderExercise();updateProgress()}
+function renderDays(id){document.getElementById(id).innerHTML=workouts.map((w,i)=>`<div class="daycard" onclick="openDay(${i})"><div class="daynum">DIA ${w.day}</div><h3>${w.name}</h3><p>${w.focus}</p><div class="daycount">${w.items.length} EXERCÍCIOS</div></div>`).join("")}
+function renderDay(){let w=workouts[currentDay];document.getElementById("dayContent").innerHTML=`<div class="dayhero"><div class="daynum">DIA ${w.day}</div><h1>${w.name}</h1><p>${w.focus} • ${w.items.length} exercícios</p></div><div class="exercise-list">${w.items.map((x,i)=>`<div class="exercise-card" onclick="openExercise(${i})"><div class="thumb">${x[0]}</div><div><h3>${x[0]}</h3><p>${x[1]} • ${x[5]} • ${x[6]}</p></div><div class="exercise-meta"><b>${x[2]}</b><span>RIR ${x[3]}</span></div></div>`).join("")}</div>`}
+function renderExercise(){let w=workouts[currentDay],x=w.items[currentExercise],ok=isDone(currentDay,currentExercise);document.getElementById("exerciseContent").innerHTML=`<div class="eyebrow">DIA ${w.day} • ${x[5]}</div><h1>${x[0]}</h1><div class="technical">${x[1]}</div><div class="imagebox">IMAGEM DO EXERCÍCIO<br><small>Área reservada para a imagem correspondente.</small></div><div class="stats"><div class="statbox"><b>${x[2]}</b><span>Séries × repetições</span></div><div class="statbox"><b>${x[3]}</b><span>RIR</span></div><div class="statbox"><b>${x[4]}</b><span>Descanso</span></div></div><div class="info"><h3>MÚSCULO-ALVO</h3><p>${x[6]}</p></div><div class="info"><h3>EXECUÇÃO / CONTROLE</h3><p>${x[7]}</p></div><button class="complete ${ok?"done":""}" onclick="toggleDone(${currentDay},${currentExercise})">${ok?"✓ EXERCÍCIO CONCLUÍDO":"MARCAR COMO CONCLUÍDO"}</button>`}
+function updateProgress(){let n=done.length,p=Math.round(n/48*100);document.getElementById("homeProgress").textContent=p+"%";document.getElementById("homeFill").style.width=p+"%";document.getElementById("bigPct").textContent=p+"%";document.getElementById("bigBar").style.width=p+"%";document.getElementById("doneCount").textContent=n;document.getElementById("weekGrid").innerHTML=workouts.map((w,d)=>{let n=w.items.filter((_,i)=>isDone(d,i)).length;return`<div class="weekday ${n===w.items.length?"done":""}">DIA ${w.day}<br><b>${n}/${w.items.length}</b></div>`}).join("")}
+function initToji(){
+ document.querySelectorAll(".navbtn").forEach(b=>b.addEventListener("click",()=>go(b.dataset.view)));
+ document.getElementById("continueBtn").onclick=()=>go("protocol");
+ renderDays("homeDays");
+ renderDays("protocolDays");
+ updateProgress();
+}
+if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",initToji);else initToji();
+if("serviceWorker" in navigator){window.addEventListener("load",()=>navigator.serviceWorker.register("./service-worker.js?20260923").catch(e=>console.warn(e)))}
+</script>
+</body>
+</html>
