@@ -105,7 +105,8 @@ const workouts=[
 
 let currentDay=0,currentExercise=0;
 const storageKey="toji-done-v1";
-let done=JSON.parse(localStorage.getItem(storageKey)||"[]");
+let done=[];
+try{done=JSON.parse(localStorage.getItem(storageKey)||"[]");if(!Array.isArray(done))done=[]}catch(e){done=[]}
 
 function go(v){document.querySelectorAll(".view").forEach(x=>x.classList.remove("active"));document.getElementById(v).classList.add("active");document.querySelectorAll(".navbtn").forEach(x=>x.classList.toggle("active",x.dataset.view===v));scrollTo(0,0)}
 function openDay(i){currentDay=i;renderDay();go("day")}
@@ -118,10 +119,15 @@ function renderDays(id){document.getElementById(id).innerHTML=workouts.map((w,i)
 function renderDay(){let w=workouts[currentDay];document.getElementById("dayContent").innerHTML=`<div class="dayhero"><div class="daynum">DIA ${w.day}</div><h1>${w.name}</h1><p>${w.focus} • ${w.items.length} exercícios</p></div><div class="exercise-list">${w.items.map((x,i)=>`<div class="exercise-card" onclick="openExercise(${i})"><div class="thumb">${x[0]}</div><div><h3>${x[0]}</h3><p>${x[1]} • ${x[5]} • ${x[6]}</p></div><div class="exercise-meta"><b>${x[2]}</b><span>RIR ${x[3]}</span></div></div>`).join("")}</div>`}
 function renderExercise(){let w=workouts[currentDay],x=w.items[currentExercise],ok=isDone(currentDay,currentExercise);document.getElementById("exerciseContent").innerHTML=`<div class="eyebrow">DIA ${w.day} • ${x[5]}</div><h1>${x[0]}</h1><div class="technical">${x[1]}</div><div class="imagebox">IMAGEM DO EXERCÍCIO<br><small>Área reservada para a imagem correspondente.</small></div><div class="stats"><div class="statbox"><b>${x[2]}</b><span>Séries × repetições</span></div><div class="statbox"><b>${x[3]}</b><span>RIR</span></div><div class="statbox"><b>${x[4]}</b><span>Descanso</span></div></div><div class="info"><h3>MÚSCULO-ALVO</h3><p>${x[6]}</p></div><div class="info"><h3>EXECUÇÃO / CONTROLE</h3><p>${x[7]}</p></div><button class="complete ${ok?"done":""}" onclick="toggleDone(${currentDay},${currentExercise})">${ok?"✓ EXERCÍCIO CONCLUÍDO":"MARCAR COMO CONCLUÍDO"}</button>`}
 function updateProgress(){let n=done.length,p=Math.round(n/48*100);document.getElementById("homeProgress").textContent=p+"%";document.getElementById("homeFill").style.width=p+"%";document.getElementById("bigPct").textContent=p+"%";document.getElementById("bigBar").style.width=p+"%";document.getElementById("doneCount").textContent=n;document.getElementById("weekGrid").innerHTML=workouts.map((w,d)=>{let n=w.items.filter((_,i)=>isDone(d,i)).length;return`<div class="weekday ${n===w.items.length?"done":""}">DIA ${w.day}<br><b>${n}/${w.items.length}</b></div>`}).join("")}
-document.querySelectorAll(".navbtn").forEach(b=>b.addEventListener("click",()=>go(b.dataset.view)));
-document.getElementById("continueBtn").onclick=()=>go("protocol");
-renderDays("homeDays");renderDays("protocolDays");updateProgress();
-if("serviceWorker" in navigator){addEventListener("load",()=>navigator.serviceWorker.register("./service-worker.js").catch(e=>console.warn(e)))}
+function initToji(){
+ document.querySelectorAll(".navbtn").forEach(b=>b.addEventListener("click",()=>go(b.dataset.view)));
+ document.getElementById("continueBtn").onclick=()=>go("protocol");
+ renderDays("homeDays");
+ renderDays("protocolDays");
+ updateProgress();
+}
+if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",initToji);else initToji();
+if("serviceWorker" in navigator){window.addEventListener("load",()=>navigator.serviceWorker.register("./service-worker.js?20260923").catch(e=>console.warn(e)))}
 </script>
 </body>
 </html>
