@@ -1,214 +1,107 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="theme-color" content="#0b1220">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0b0b0b">
+<link rel="manifest" href="./manifest.json">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
 <title>TOJI PROTOCOL — 5X SEMANA</title>
 <style>
-:root{
-  --ink:#0a0f18; --muted:#667085; --line:#e7ebf1; --blue:#1264ff;
-  --blue2:#0b46c9; --bg:#f5f7fa; --card:#fff; --soft:#edf4ff;
-  --green:#0d9f6e; --shadow:0 14px 40px rgba(10,15,24,.08);
-}
-*{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
-button,input{font:inherit}
-.app{max-width:760px;margin:auto;min-height:100vh}
-.top{position:sticky;top:0;z-index:20;background:rgba(245,247,250,.92);backdrop-filter:blur(18px);border-bottom:1px solid rgba(231,235,241,.9)}
-.topin{padding:16px 18px 12px}
-.brand{display:flex;align-items:center;justify-content:space-between}
-.brand b{font-size:13px;letter-spacing:.18em}
-.badge{font-size:10px;font-weight:800;letter-spacing:.1em;background:var(--ink);color:#fff;padding:7px 9px;border-radius:8px}
-.hero{margin:14px 16px 0;padding:22px;border-radius:24px;background:linear-gradient(135deg,#0a0f18 0%,#13233f 55%,#0b46c9 100%);color:#fff;box-shadow:0 18px 45px rgba(18,100,255,.2)}
-.eyebrow{font-size:10px;letter-spacing:.2em;font-weight:800;opacity:.7}
-.hero h1{font-size:30px;line-height:1;margin:8px 0}
-.hero p{margin:0;max-width:560px;color:#cbd5e1;font-size:13px;line-height:1.55}
-.heroStats{display:flex;gap:8px;margin-top:18px;flex-wrap:wrap}
-.stat{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.13);padding:9px 11px;border-radius:12px;font-size:11px}
-.controls{padding:14px 16px 4px}
-.search{display:flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:11px 13px}
-.search input{border:0;outline:0;width:100%;background:transparent;font-size:13px}
-.filters{display:flex;gap:7px;overflow:auto;padding:10px 0 4px;scrollbar-width:none}
-.filters::-webkit-scrollbar{display:none}
-.filter{white-space:nowrap;border:1px solid var(--line);background:#fff;color:#475467;border-radius:999px;padding:8px 11px;font-size:11px;font-weight:750}
-.filter.active{background:var(--blue);color:#fff;border-color:var(--blue)}
-.day{margin:18px 16px 0}
-.dayHead{display:flex;align-items:end;justify-content:space-between;margin-bottom:10px}
-.dayHead .num{font-size:11px;color:var(--blue);font-weight:900;letter-spacing:.12em}
-.dayHead h2{font-size:21px;margin:3px 0 0}
-.dayHead p{margin:0;color:var(--muted);font-size:11px}
-.exercise{background:var(--card);border:1px solid var(--line);border-radius:22px;overflow:hidden;margin:10px 0;box-shadow:var(--shadow)}
-.media{position:relative;background:#eef2f6;min-height:240px}
-.mediaGrid{display:grid;grid-template-columns:1fr 1fr;gap:1px;height:260px;background:#dfe5ec}
-.mediaCell{position:relative;overflow:hidden;background:#eef2f6}
-.mediaCell img{width:100%;height:100%;display:block;object-fit:cover}
-.mediaCell span{position:absolute;left:9px;top:9px;background:rgba(10,15,24,.82);color:#fff;font-size:9px;font-weight:900;letter-spacing:.1em;padding:6px 7px;border-radius:7px}
-.media .source{position:absolute;right:10px;bottom:10px;background:rgba(255,255,255,.9);color:#344054;font-size:8px;padding:5px 7px;border-radius:7px}
-.content{padding:15px}
-.titleRow{display:flex;justify-content:space-between;gap:10px}
-.titleRow h3{margin:0;font-size:17px;line-height:1.15}
-.equip{margin-top:4px;color:var(--muted);font-size:10px;font-weight:700}
-.tags{display:flex;gap:6px;flex-wrap:wrap;margin:11px 0}
-.tag{background:var(--soft);color:#1554c0;padding:6px 8px;border-radius:8px;font-size:9px;font-weight:850}
-.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:11px 0}
-.metric b{display:block;font-size:13px}
-.metric span{display:block;color:var(--muted);font-size:8px;text-transform:uppercase;letter-spacing:.08em;margin-top:2px}
-.section{margin-top:12px}
-.section h4{font-size:9px;letter-spacing:.13em;margin:0 0 5px;color:#344054}
-.section p{margin:0;color:#475467;font-size:11px;line-height:1.55}
-.detail{margin-top:12px;background:#f8fafc;border-radius:12px;padding:11px}
-.detail b{font-size:10px}
-.detail ul{margin:6px 0 0 16px;padding:0;color:#475467;font-size:10px;line-height:1.6}
-.footer{padding:28px 18px 44px;color:#98a2b3;font-size:9px;line-height:1.5;text-align:center}
-.hidden{display:none!important}
-@media(min-width:700px){
- .hero{margin-left:16px;margin-right:16px}
- .exercise{display:grid;grid-template-columns:48% 52%}
- .media,.mediaGrid{height:100%;min-height:330px}
- .mediaGrid{height:100%}
-}
+:root{--bg:#090909;--panel:#111;--line:#292929;--text:#f5f5f5;--muted:#999;--red:#e3262e;--ok:#35c759}
+*{box-sizing:border-box}html,body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif}
+body{min-width:320px}.app{max-width:1920px;margin:auto;min-height:100vh;padding-bottom:82px}
+.top{position:sticky;top:0;z-index:20;background:#090909ee;border-bottom:1px solid #222;backdrop-filter:blur(18px)}
+.topin{height:62px;padding:0 18px;display:flex;align-items:center;justify-content:space-between}.brand{font-size:12px;font-weight:900;letter-spacing:.2em}
+.badge{font-size:9px;font-weight:900;border:1px solid #363636;border-radius:999px;padding:7px 9px;color:#ddd}
+.view{display:none}.view.active{display:block}.hero{margin:16px;padding:24px 20px;border:1px solid #292929;border-radius:26px;background:linear-gradient(145deg,#151515,#0c0c0c)}
+.kicker,.daynum,.eyebrow{font-size:9px;font-weight:900;letter-spacing:.16em;color:#e75a60}.hero h1{font-size:34px;line-height:1;margin:9px 0}.hero p,.protocolhead p,.dayhero p{color:#999;font-size:12px;line-height:1.5}
+.pills{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}.pill{font-size:10px;font-weight:800;background:#1c1c1c;border:1px solid #303030;border-radius:10px;padding:8px 10px}
+.progressbox,.bigprogress{margin-top:16px;background:#0a0a0a;border:1px solid #272727;border-radius:15px;padding:12px}.progressline,.bar{height:8px;background:#252525;border-radius:999px;overflow:hidden;margin-top:8px}.progressfill,.bar i{display:block;height:100%;width:0;background:var(--red)}
+.continue{margin-top:12px;width:100%;border:0;background:var(--red);color:white;border-radius:14px;padding:13px;font-weight:900}
+.sectionpad,.daydetail,.exercise-detail,.progressview{padding:0 16px}.sectiontitle{display:flex;justify-content:space-between;align-items:end;margin:22px 2px 10px}.sectiontitle h2{font-size:18px;margin:0}
+.daygrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.daycard{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:15px;cursor:pointer}.daycard h3{font-size:14px;margin:7px 0 4px}.daycard p{font-size:10px;color:#888;margin:0}.daycount{margin-top:12px;font-size:9px;color:#bbb;font-weight:800}
+.protocolhead{padding:20px 16px 5px}.protocolhead h1,.progressview h1{font-size:28px;margin:0 0 5px}.back{margin-top:16px;border:1px solid #333;background:#111;color:#ddd;border-radius:11px;padding:9px 11px;font-size:10px;font-weight:800}
+.dayhero{margin:13px 0 16px;padding:18px;border:1px solid #292929;border-radius:20px;background:#121212}.dayhero h1{font-size:23px;margin:5px 0}
+.exercise-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;max-width:1800px;margin:auto}.exercise-card{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:13px;display:grid;grid-template-columns:120px 1fr auto;gap:12px;align-items:center;cursor:pointer}
+.thumb{width:120px;height:105px;border-radius:13px;background:#1d1d1d;border:1px solid #303030;display:grid;place-items:center;color:#777;font-size:8px;font-weight:900;text-align:center;padding:8px}.thumb img{width:100%;height:100%;object-fit:contain;border-radius:10px;display:block}.imagebox{overflow:hidden}.imagebox img{width:100%;max-height:560px;object-fit:contain;display:block;border-radius:18px}.exercise-card h3{font-size:13px;margin:0 0 4px}.exercise-card p{font-size:9px;color:#888;margin:0}.exercise-meta{text-align:right}.exercise-meta b{font-size:11px}.exercise-meta span{display:block;color:#777;font-size:8px;margin-top:3px}
+.exercise-detail{max-width:1400px;margin:auto}.exercise-detail h1{font-size:28px;line-height:1.03;margin:6px 0}.technical{font-size:10px;color:#888}.imagebox{margin:16px 0;background:#f5f5f5;border:1px solid #2c2c2c;border-radius:22px;min-height:260px;display:grid;place-items:center;color:#777;text-align:center}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}.statbox,.info{background:#121212;border:1px solid #292929;border-radius:13px;padding:11px}.statbox b{display:block;font-size:13px}.statbox span{font-size:8px;color:#777;text-transform:uppercase}.info{margin-top:10px;border-radius:17px;padding:14px}.info h3{font-size:9px;letter-spacing:.13em;margin:0 0 6px;color:#aaa}.info p{font-size:11px;line-height:1.55;color:#ccc;margin:0}
+.complete{width:100%;margin-top:12px;border:1px solid #3b3b3b;background:#191919;color:#fff;border-radius:14px;padding:14px;font-size:11px;font-weight:900}.complete.done{background:var(--ok);color:#061108}
+.weekgrid{display:grid;grid-template-columns:repeat(5,1fr);gap:7px;margin-top:12px}.weekday{background:#121212;border:1px solid #292929;border-radius:12px;text-align:center;padding:10px 3px;font-size:9px;color:#777}.weekday.done{border-color:#3a7d4a;color:#d8f4de}
+.bottom{position:fixed;z-index:30;bottom:0;left:50%;transform:translateX(-50%);width:min(760px,100%);height:72px;background:#0a0a0af2;border-top:1px solid #252525;display:grid;grid-template-columns:repeat(3,1fr);padding:7px 10px}.navbtn{background:none;border:0;color:#666;font-size:9px;font-weight:900}.navbtn span{display:block;font-size:19px;margin-bottom:3px}.navbtn.active{color:#fff}
+@media(max-width:900px){.exercise-list{grid-template-columns:1fr}.exercise-card{grid-template-columns:100px 1fr auto}.thumb{width:100px;height:90px}}@media(max-width:600px){.exercise-card{grid-template-columns:82px 1fr auto}.thumb{width:82px;height:82px}}
 </style>
-<link rel="manifest" href="./manifest.json">
 </head>
 <body>
 <div class="app">
-<header class="top"><div class="topin"><div class="brand"><b>TOJI PROTOCOL</b><span class="badge">5X / WEEK</span></div></div></header>
-
-<section class="hero">
-  <div class="eyebrow">V-TAPER • DENSIDADE • PROGRESSÃO</div>
-  <h1>Treino de alta precisão.</h1>
-  <p>Divisão por músculos e funções, demonstrações visuais e instruções rápidas para executar cada movimento com consistência.</p>
-  <div class="heroStats">
-    <span class="stat"><b>05</b> dias</span><span class="stat"><b>50+</b> movimentos</span><span class="stat"><b>RIR</b> controlado</span><span class="stat"><b>V-TAPER</b> foco</span>
-  </div>
-</section>
-
-<div class="controls">
-  <div class="search">⌕ <input id="search" placeholder="Buscar exercício, músculo ou máquina..."></div>
-  <div class="filters" id="filters"></div>
+<header class="top"><div class="topin"><div class="brand">TOJI PROTOCOL</div><div class="badge">5X / SEMANA</div></div></header>
+<main>
+<section id="home" class="view active"><div class="hero"><div class="kicker">V-TAPER • DENSIDADE • PROGRESSÃO</div><h1>Treino de alta precisão.</h1><p>Seu protocolo organizado como um aplicativo: escolha o dia, abra cada exercício e registre sua execução.</p><div class="pills"><span class="pill">05 DIAS</span><span class="pill">48 EXERCÍCIOS</span><span class="pill">RIR</span></div><div class="progressbox"><div style="display:flex;justify-content:space-between;font-size:10px;font-weight:800"><span>PROGRESSO</span><span id="homeProgress">0%</span></div><div class="progressline"><div class="progressfill" id="homeFill"></div></div></div><button class="continue" id="continueBtn">COMEÇAR PROTOCOLO</button></div><div class="sectionpad"><div class="sectiontitle"><h2>Seu protocolo</h2><span>5 DIAS</span></div><div id="homeDays" class="daygrid"></div></div></section>
+<section id="protocol" class="view"><div class="protocolhead"><h1>Protocolo</h1><p>Selecione um dia para abrir seus exercícios.</p></div><div class="sectionpad"><div id="protocolDays" class="daygrid"></div></div></section>
+<section id="day" class="view"><div class="daydetail"><button class="back" onclick="go('protocol')">← VOLTAR</button><div id="dayContent"></div></div></section>
+<section id="exercise" class="view"><div class="exercise-detail"><button class="back" onclick="backToDay()">← VOLTAR</button><div id="exerciseContent"></div></div></section>
+<section id="progress" class="view"><div class="progressview"><h1>Progresso</h1><p>Acompanhe os exercícios concluídos neste aparelho.</p><div class="bigprogress"><strong id="bigPct">0%</strong><div class="bar"><i id="bigBar"></i></div><div style="font-size:10px;color:#888"><span id="doneCount">0</span> de <span id="totalCount">48</span> exercícios concluídos</div></div><div class="sectiontitle"><h2>Dias</h2></div><div id="weekGrid" class="weekgrid"></div></div></section>
+</main>
+<nav class="bottom"><button class="navbtn active" data-view="home"><span>⌂</span>INÍCIO</button><button class="navbtn" data-view="protocol"><span>▦</span>PROTOCOLO</button><button class="navbtn" data-view="progress"><span>◔</span>PROGRESSO</button></nav>
 </div>
-<div id="workouts"></div>
-
-<footer class="footer">
-  As demonstrações visuais são carregadas de uma biblioteca externa de exercícios. Verifique a regulagem da máquina e adapte a execução à sua anatomia. O protocolo não substitui orientação presencial de um profissional.
-</footer>
-</div>
-
 <script>
-const imgBase="https://musclelib-api.vercel.app/api/exercises/";
 const workouts=[
 {day:"01",name:"COSTAS + BÍCEPS",focus:"Largura, espessura e braços",items:[
-["Puxada alta pronada","Lat Pulldown","4×6–10","1–3","90–120s","Costas","Latíssimo do dorso","Puxe os cotovelos para baixo, mantendo o tronco estável.","Lat_Pulldown"],
-["Remada articulada","Machine Row","3×8–12","1–3","90–120s","Costas","Romboides + trapézio médio","Leve os cotovelos para trás sem perder o controle da volta.","Lever_Seated_Row"],
-["Puxada neutra","Neutral Lat Pulldown","3×8–12","1–3","90–120s","Costas","Latíssimo do dorso","Pense em levar os cotovelos para o bolso.","Close_Grip_Lat_Pulldown"],
-["Remada unilateral","One Arm Cable Row","3×10–12","1–2","75–90s","Costas","Latíssimo + romboides","Alongue na frente e reme sem girar o tronco.","Cable_One_Arm_Row"],
-["Pullover na polia","Cable Pullover","2×12–15","1–2","60–90s","Costas","Latíssimo do dorso","Mantenha os braços quase estendidos e mova pelo ombro.","Cable_Pullover"],
-["Rosca inclinada","Incline Dumbbell Curl","3×8–12","1–2","75–90s","Bíceps","Cabeça longa","Deixe o braço atrás do tronco e suba sem balançar.","Incline_Dumbbell_Curl"],
-["Rosca Scott","Preacher Curl","3×8–12","1–2","75–90s","Bíceps","Bíceps + braquial","Apoie o braço e controle completamente a descida.","Preacher_Curl"],
-["Rosca martelo","Hammer Curl","2×10–15","1–2","60–75s","Bíceps","Braquial + braquiorradial","Pegada neutra e cotovelos próximos ao corpo.","Hammer_Curl"]
-]},
+["Puxada alta pronada","Lat Pulldown","4×6–10","1–3","90–120s","Costas","Latíssimo do dorso","Puxe os cotovelos para baixo, mantendo o tronco estável."],
+["Remada articulada","Machine Row","3×8–12","1–3","90–120s","Costas","Romboides + trapézio médio","Leve os cotovelos para trás sem perder o controle da volta."],
+["Puxada neutra","Neutral Lat Pulldown","3×8–12","1–3","90–120s","Costas","Latíssimo do dorso","Pense em levar os cotovelos para o bolso."],
+["Remada unilateral","One Arm Cable Row","3×10–12","1–2","75–90s","Costas","Latíssimo + romboides","Alongue na frente e reme sem girar o tronco."],
+["Pullover na polia","Cable Pullover","2×12–15","1–2","60–90s","Costas","Latíssimo do dorso","Mantenha os braços quase estendidos e mova pelo ombro."],
+["Rosca inclinada","Incline Dumbbell Curl","3×8–12","1–2","75–90s","Bíceps","Cabeça longa","Deixe o braço atrás do tronco e suba sem balançar."],
+["Rosca Scott","Preacher Curl","3×8–12","1–2","75–90s","Bíceps","Bíceps + braquial","Apoie o braço e controle completamente a descida."],
+["Rosca martelo","Hammer Curl","2×10–15","1–2","60–75s","Bíceps","Braquial + braquiorradial","Pegada neutra e cotovelos próximos ao corpo."]]},
 {day:"02",name:"PEITO + OMBROS + TRÍCEPS",focus:"Peitoral, deltoides e três cabeças do tríceps",items:[
-["Supino inclinado","Incline Press","4×6–10","1–3","90–120s","Peito","Peitoral clavicular","Desça com controle e empurre mantendo as escápulas estáveis.","Incline_Dumbbell_Bench_Press"],
-["Supino máquina","Chest Press","3×8–12","1–2","90–120s","Peito","Peitoral maior","Ajuste o assento para as alças ficarem próximas ao meio do peito.","Lever_Chest_Press"],
-["Crucifixo na máquina","Pec Deck","3×10–15","1–2","60–90s","Peito","Peitoral maior","Abra até sentir alongamento confortável e feche sem impulso.","Lever_Pec_Deck_Fly"],
-["Desenvolvimento","Shoulder Press","3×6–10","1–3","90–120s","Ombros","Deltoide anterior + lateral","Pressione para cima sem transformar o movimento em balanço.","Lever_Shoulder_Press"],
-["Elevação lateral","Lateral Raise","4×10–20","0–2","60–75s","Ombros","Deltoide lateral","Conduza pelos cotovelos e pare antes de perder a posição.","Dumbbell_Lateral_Raise"],
-["Crucifixo inverso","Reverse Pec Deck","3×12–20","0–2","60–75s","Ombros","Deltoide posterior","Abra os braços mantendo o pescoço relaxado.","Reverse_Pec_Deck"],
-["Tríceps testa","Lying Triceps Extension","3×8–12","1–2","75–90s","Tríceps","Cabeça longa + lateral + medial","Flexione o cotovelo mantendo o braço relativamente fixo.","EZ_Bar_Lying_Triceps_Extension"],
-["Extensão acima da cabeça","Overhead Cable Extension","3×10–15","0–2","60–90s","Tríceps","Cabeça longa","Deixe o cotovelo apontado para frente e estenda sem abrir.","Cable_Overhead_Triceps_Extension"],
-["Pushdown com corda","Rope Pushdown","2×10–15","0–2","60–90s","Tríceps","Lateral + medial","Estenda até o final e mantenha os ombros quietos.","Rope_Pushdown"]
-]},
+["Supino inclinado","Incline Press","4×6–10","1–3","90–120s","Peito","Peitoral clavicular","Desça com controle e empurre mantendo as escápulas estáveis."],
+["Supino máquina","Chest Press","3×8–12","1–2","90–120s","Peito","Peitoral maior","Ajuste o assento para as alças ficarem próximas ao meio do peito."],
+["Crucifixo na máquina","Pec Deck","3×10–15","1–2","60–90s","Peito","Peitoral maior","Abra até sentir alongamento confortável e feche sem impulso."],
+["Desenvolvimento","Shoulder Press","3×6–10","1–3","90–120s","Ombros","Deltoide anterior + lateral","Pressione para cima sem transformar o movimento em balanço."],
+["Elevação lateral","Lateral Raise","4×10–20","0–2","60–75s","Ombros","Deltoide lateral","Conduza pelos cotovelos e pare antes de perder a posição."],
+["Crucifixo inverso","Reverse Pec Deck","3×12–20","0–2","60–75s","Ombros","Deltoide posterior","Abra os braços mantendo o pescoço relaxado."],
+["Tríceps testa","Lying Triceps Extension","3×8–12","1–2","75–90s","Tríceps","Cabeça longa + lateral + medial","Flexione o cotovelo mantendo o braço relativamente fixo."],
+["Extensão acima da cabeça","Overhead Cable Extension","3×10–15","0–2","60–90s","Tríceps","Cabeça longa","Deixe o cotovelo apontado para frente e estenda sem abrir."],
+["Pushdown com corda","Rope Pushdown","2×10–15","0–2","60–90s","Tríceps","Lateral + medial","Estenda até o final e mantenha os ombros quietos."]]},
 {day:"03",name:"PERNAS + ABDÔMEN",focus:"Quadríceps, posteriores, glúteos e core",items:[
-["Agachamento / Hack Squat","Hack Squat","4×6–10","1–3","120s","Pernas","Quadríceps + glúteos","Desça com controle e mantenha o pé inteiro apoiado.","Hack_Squat"],
-["Leg Press","Leg Press","3×8–12","1–2","90–120s","Pernas","Quadríceps + glúteos","Desça até a amplitude que preserve sua posição pélvica.","Leg_Press"],
-["Cadeira extensora","Leg Extension","3×10–15","0–2","60–75s","Pernas","Quadríceps","Estenda controlando a volta e sem chutar a carga.","Leg_Extension"],
-["Stiff / RDL","Romanian Deadlift","3×6–10","1–3","120s","Pernas","Posteriores + glúteos","Leve o quadril para trás mantendo a coluna neutra.","Romanian_Deadlift"],
-["Mesa flexora","Lying Leg Curl","3×10–15","0–2","60–90s","Pernas","Posteriores","Flexione o joelho sem tirar o quadril do banco.","Lying_Leg_Curl"],
-["Hip Thrust","Hip Thrust","2–3×8–12","1–2","90s","Pernas","Glúteos","Finalize com extensão do quadril sem hiperestender a lombar.","Barbell_Hip_Thrust"],
-["Panturrilha em pé","Standing Calf Raise","3×8–15","0–2","60–75s","Pernas","Gastrocnêmio + sóleo","Faça uma pausa no alto e alongue com controle.","Standing_Calf_Raise"],
-["Crunch na polia","Cable Crunch","3×10–15","1–2","60s","Abdômen","Reto abdominal","Pense em aproximar costelas e pelve, não apenas puxar com os braços.","Cable_Crunch"],
-["Elevação de pernas","Hanging Leg Raise","3×8–15","1–2","60s","Abdômen","Reto abdominal + flexores","Evite balançar e controle a descida.","Hanging_Leg_Raise"],
-["Prancha","Plank","2×30–60s","—","45–60s","Abdômen","Core","Mantenha costelas e pelve organizadas durante todo o tempo.","Front_Plank"]
-]},
+["Agachamento / Hack Squat","Hack Squat","4×6–10","1–3","120s","Pernas","Quadríceps + glúteos","Desça com controle e mantenha o pé inteiro apoiado."],
+["Leg Press","Leg Press","3×8–12","1–2","90–120s","Pernas","Quadríceps + glúteos","Desça até a amplitude que preserve sua posição pélvica."],
+["Cadeira extensora","Leg Extension","3×10–15","0–2","60–75s","Pernas","Quadríceps","Estenda controlando a volta e sem chutar a carga."],
+["Stiff / RDL","Romanian Deadlift","3×6–10","1–3","120s","Pernas","Posteriores + glúteos","Leve o quadril para trás mantendo a coluna neutra."],
+["Mesa flexora","Lying Leg Curl","3×10–15","0–2","60–90s","Pernas","Posteriores","Flexione o joelho sem tirar o quadril do banco."],
+["Hip Thrust","Hip Thrust","2–3×8–12","1–2","90s","Pernas","Glúteos","Finalize com extensão do quadril sem hiperestender a lombar."],
+["Panturrilha em pé","Standing Calf Raise","3×8–15","0–2","60–75s","Pernas","Gastrocnêmio + sóleo","Faça uma pausa no alto e alongue com controle."],
+["Crunch na polia","Cable Crunch","3×10–15","1–2","60s","Abdômen","Reto abdominal","Pense em aproximar costelas e pelve, não apenas puxar com os braços."],
+["Elevação de pernas","Hanging Leg Raise","3×8–15","1–2","60s","Abdômen","Reto abdominal + flexores","Evite balançar e controle a descida."],
+["Prancha","Plank","2×30–60s","—","45–60s","Abdômen","Core","Mantenha costelas e pelve organizadas durante todo o tempo."]]},
 {day:"04",name:"COSTAS + OMBROS + BÍCEPS",focus:"V-taper e densidade",items:[
-["Barra fixa / puxada","Pull Up","4×6–10","1–3","90–120s","Costas","Latíssimo do dorso","Comece com escápulas ativas e leve o peito em direção à barra.","Pull_Up"],
-["Remada apoiada no peito","Chest Supported Row","3×8–12","1–2","90–120s","Costas","Trapézio médio + romboides","Use o apoio para eliminar balanço e concentrar na remada.","Chest_Supported_Row"],
-["Puxada unilateral","Single Arm Lat Pulldown","3×10–12","1–2","75–90s","Costas","Latíssimo","Puxe o cotovelo para baixo e ligeiramente para trás.","One_Arm_Lat_Pulldown"],
-["Pullover","Cable Pullover","2×12–15","1–2","60–90s","Costas","Latíssimo","Controle o alongamento e não transforme em tríceps.","Straight_Arm_Pulldown"],
-["Elevação lateral na polia","Cable Lateral Raise","4×12–20","0–2","60s","Ombros","Deltoide lateral","Mantenha tensão contínua e movimento limpo.","Cable_Lateral_Raise"],
-["Elevação lateral máquina","Machine Lateral Raise","3×12–20","0–2","60s","Ombros","Deltoide lateral","Suba com os cotovelos e não com as mãos.","Lever_Lateral_Raise"],
-["Crucifixo inverso","Rear Delt Fly","3×12–20","0–2","60s","Ombros","Deltoide posterior","Abra sem elevar os ombros em direção às orelhas.","Dumbbell_Rear_Delt_Fly"],
-["Rosca direta","Barbell Curl","3×6–10","1–2","75–90s","Bíceps","Bíceps braquial","Mantenha o cotovelo estável e evite inclinar o tronco.","Barbell_Curl"],
-["Rosca Bayesian","Bayesian Curl","3×10–15","0–2","60–75s","Bíceps","Cabeça longa","Deixe o braço atrás do corpo e mantenha tensão no alongamento.","Cable_Bayesian_Curl"],
-["Rosca martelo","Hammer Curl","2×10–15","0–2","60–75s","Bíceps","Braquial + braquiorradial","Suba sem girar a mão.","Hammer_Curl"]
-]},
+["Barra fixa / puxada","Pull Up","4×6–10","1–3","90–120s","Costas","Latíssimo do dorso","Comece com escápulas ativas e leve o peito em direção à barra."],
+["Remada apoiada no peito","Chest Supported Row","3×8–12","1–2","90–120s","Costas","Trapézio médio + romboides","Use o apoio para eliminar balanço e concentrar na remada."],
+["Puxada unilateral","Single Arm Lat Pulldown","3×10–12","1–2","75–90s","Costas","Latíssimo","Puxe o cotovelo para baixo e ligeiramente para trás."],
+["Pullover","Cable Pullover","2×12–15","1–2","60–90s","Costas","Latíssimo","Controle o alongamento e não transforme em tríceps."],
+["Elevação lateral na polia","Cable Lateral Raise","4×12–20","0–2","60s","Ombros","Deltoide lateral","Mantenha tensão contínua e movimento limpo."],
+["Elevação lateral máquina","Machine Lateral Raise","3×12–20","0–2","60s","Ombros","Deltoide lateral","Suba com os cotovelos e não com as mãos."],
+["Crucifixo inverso","Rear Delt Fly","3×12–20","0–2","60s","Ombros","Deltoide posterior","Abra sem elevar os ombros em direção às orelhas."],
+["Rosca direta","Barbell Curl","3×6–10","1–2","75–90s","Bíceps","Bíceps braquial","Mantenha o cotovelo estável e evite inclinar o tronco."],
+["Rosca Bayesian","Bayesian Curl","3×10–15","0–2","60–75s","Bíceps","Cabeça longa","Deixe o braço atrás do corpo e mantenha tensão no alongamento."],
+["Rosca martelo","Hammer Curl","2×10–15","0–2","60–75s","Bíceps","Braquial + braquiorradial","Suba sem girar a mão."]]},
 {day:"05",name:"PEITO + BRAÇOS + PERNAS",focus:"Volume complementar e acabamento",items:[
-["Supino inclinado","Incline Press","3×6–10","1–3","90–120s","Peito","Peitoral clavicular","Desça com controle e mantenha o peito alto.","Incline_Dumbbell_Bench_Press"],
-["Supino reto","Flat Bench Press","3×8–12","1–2","90–120s","Peito","Peitoral maior","Mantenha escápulas firmes e punhos alinhados.","Barbell_Bench_Press"],
-["Crossover","Cable Crossover","2×12–15","0–2","60–75s","Peito","Peitoral maior","Feche os braços em arco e contraia o peito.","Cable_Crossover"],
-["Paralelas / máquina assistida","Assisted Dip","3×6–12","1–2","90s","Peito + tríceps","Peitoral inferior + tríceps","Desça com controle e mantenha os ombros confortáveis.","Assisted_Dip"],
-["Extensão acima da cabeça","Overhead Triceps Extension","3×10–15","0–2","60–90s","Tríceps","Cabeça longa","Use amplitude controlada e mantenha o cotovelo organizado.","Dumbbell_Overhead_Triceps_Extension"],
-["Pushdown","Cable Pushdown","2×10–15","0–2","60–90s","Tríceps","Lateral + medial","Estenda completamente sem jogar o ombro para frente.","Cable_Pushdown"],
-["Rosca Scott","Preacher Curl","3×8–12","1–2","75–90s","Bíceps","Bíceps + braquial","Controle a parte baixa sem relaxar totalmente a tensão.","Preacher_Curl"],
-["Rosca inclinada","Incline Dumbbell Curl","3×8–12","1–2","75–90s","Bíceps","Cabeça longa","Evite avançar o cotovelo durante a subida.","Incline_Dumbbell_Curl"],
-["Cadeira extensora","Leg Extension","3×10–15","0–2","60–75s","Pernas","Quadríceps","Controle a descida e mantenha o quadril apoiado.","Leg_Extension"],
-["Mesa flexora","Lying Leg Curl","3×10–15","0–2","60–90s","Pernas","Posteriores","Mantenha o quadril estável durante a repetição.","Lying_Leg_Curl"],
-["Panturrilha","Standing Calf Raise","3×10–20","0–2","60–75s","Pernas","Panturrilhas","Amplitude completa e pausa no pico da contração.","Standing_Calf_Raise"]
-]}
+["Supino inclinado","Incline Press","3×6–10","1–3","90–120s","Peito","Peitoral clavicular","Desça com controle e mantenha o peito alto."],
+["Supino reto","Flat Bench Press","3×8–12","1–2","90–120s","Peito","Peitoral maior","Mantenha escápulas firmes e punhos alinhados."],
+["Crossover","Cable Crossover","2×12–15","0–2","60–75s","Peito","Peitoral maior","Feche os braços em arco e contraia o peito."],
+["Paralelas / máquina assistida","Assisted Dip","3×6–12","1–2","90s","Peito + tríceps","Peitoral inferior + tríceps","Desça com controle e mantenha os ombros confortáveis."],
+["Extensão acima da cabeça","Overhead Triceps Extension","3×10–15","0–2","60–90s","Tríceps","Cabeça longa","Use amplitude controlada e mantenha o cotovelo organizado."],
+["Pushdown","Cable Pushdown","2×10–15","0–2","60–90s","Tríceps","Lateral + medial","Estenda os cotovelos sem movimentar os ombros."],
+["Rosca Scott","Preacher Curl","3×8–12","1–2","75–90s","Bíceps","Bíceps + braquial","Apoie o braço e controle a descida."],
+["Rosca inclinada","Incline Dumbbell Curl","3×8–12","1–2","75–90s","Bíceps","Cabeça longa","Mantenha os braços atrás do tronco e evite impulso."],
+["Cadeira extensora","Leg Extension","3×10–15","0–2","60–75s","Pernas","Quadríceps","Estenda com controle e retorne sem soltar a carga."],
+["Mesa flexora","Lying Leg Curl","3×10–15","0–2","60–90s","Pernas","Posteriores","Mantenha o quadril apoiado e controle a volta."],
+["Panturrilha","Standing Calf Raise","3×8–15","0–2","60–75s","Pernas","Gastrocnêmio + sóleo","Suba completamente, pause no alto e desça sob controle."]]}
 ];
 
-const categories=["Todos","Costas","Peito","Ombros","Bíceps","Tríceps","Pernas","Abdômen"];
-let active="Todos";
-const filters=document.getElementById("filters");
-categories.forEach(c=>{
- const b=document.createElement("button"); b.className="filter"+(c===active?" active":""); b.textContent=c;
- b.onclick=()=>{active=c; document.querySelectorAll(".filter").forEach(x=>x.classList.toggle("active",x===b)); render()};
- filters.appendChild(b);
-});
-
-function esc(s){return s.replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]))}
-function imageUrl(key,i){return imgBase+encodeURIComponent(key)+"/"+i+".jpg"}
-function render(){
- const q=document.getElementById("search").value.toLowerCase().trim();
- const root=document.getElementById("workouts"); root.innerHTML="";
- workouts.forEach(w=>{
-  const items=w.items.filter(x=>(active==="Todos"||x[5]===active) && (!q || x.join(" ").toLowerCase().includes(q)));
-  if(!items.length)return;
-  const sec=document.createElement("section"); sec.className="day";
-  sec.innerHTML=`<div class="dayHead"><div><div class="num">DIA ${w.day}</div><h2>${w.name}</h2><p>${w.focus}</p></div><div class="num">${items.length} EXERCÍCIOS</div></div>`;
-  items.forEach((x,idx)=>{
-   const [name,equip,sets,rir,rest,cat,target,cue,key]=x;
-   const card=document.createElement("article"); card.className="exercise";
-   card.innerHTML=`
-    <div class="media">
-      <div class="mediaGrid">
-       <div class="mediaCell"><img src="${imageUrl(key,0)}" alt="${esc(name)} — início" loading="lazy" onerror="this.style.opacity='.12'"><span>INÍCIO</span></div>
-       <div class="mediaCell"><img src="${imageUrl(key,1)}" alt="${esc(name)} — final" loading="lazy" onerror="this.style.opacity='.12'"><span>FINAL</span></div>
-      </div>
-      <div class="source">DEMONSTRAÇÃO VISUAL</div>
-    </div>
-    <div class="content">
-      <div class="titleRow"><div><h3>${esc(name)}</h3><div class="equip">${esc(equip)}</div></div><div class="num">${String(idx+1).padStart(2,"0")}</div></div>
-      <div class="tags"><span class="tag">${esc(cat)}</span><span class="tag">${esc(target)}</span></div>
-      <div class="metrics">
-       <div class="metric"><b>${esc(sets)}</b><span>Séries × reps</span></div>
-       <div class="metric"><b>${esc(rir)}</b><span>RIR</span></div>
-       <div class="metric"><b>${esc(rest)}</b><span>Descanso</span></div>
-       <div class="metric"><b>CTRL</b><span>Execução</span></div>
-      </div>
-      <div class="section"><h4>PARA QUE SERVE</h4><p>${esc(target)} como foco principal. O objetivo é gerar estímulo consistente sem compensações desnecessárias.</p></div>
-      <div class="section"><h4>CUE PRINCIPAL</h4><p>${esc(cue)}</p></div>
-      <div class="detail"><b>CHECKLIST</b><ul><li>Regule a máquina/posição antes da série.</li><li>Faça a amplitude que consegue controlar.</li><li>Registre carga e repetições para progressão.</li></ul></div>
-    </div>`;
-   sec.appendChild(card);
-  });
-  root.appendChild(sec);
- });
-}
-document.getElementById("search").addEventListener("input",render);
-render();
-</script>
-<script>if('serviceWorker' in navigator){window.addEventListener('load',()=>navigator.serviceWorker.register('./service-worker.js').catch(()=>{}));}</script>
-</body>
-</html>
+let currentDay=0,currentExercise=0;
+const EXERCISE_IMAGES=["data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20400%20420%22%20role%3D%22img%22%20aria-label%3D%22Puxada%20alta%20pronada%20%E2%80%94%20fase%20inicial%22%3E%3Crect%20width%3D%22400%22%20height%3D%22420%22%20fill%3D%22%23f7f9fb%22%2F%3E%3Cg%20stroke%3D%22%237b8794%22%20stroke-width%3D%228%22%20fill%3D%22none%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M70%20110V55H330V110M95%2055V35M305%2055V35%22%2F%3E%3Cpath%20d%3D%22M105%2085H295%22%2F%3E%3Cpath%20d%3D%22M200%2055V120%22%2F%3E%3C%2Fg%3E%3Cg%20%20stroke%3D%22%2339424e%22%20stroke-width%3D%2210%22%20fill%3D%22%23e9edf2%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Ccircle%20cx%3D%22200%22%20cy%3D%22140%22%20r%3D%2228%22%2F%3E%3Cpath%20d%3D%22M200%20168L200%20250M200%20190L135%20120M200%20190L265%20120M200%20250L165%20350M200%20250L235%20350%22%2F%3E%3C%2Fg%3E%3Cg%20fill%3D%22%23d9534f%22%20opacity%3D%22.82%22%3E%3Cellipse%20cx%3D%22170%22%20cy%3D%22205%22%20rx%3D%2228%22%20ry%3D%2242%22%2F%3E%3Cellipse%20cx%3D%22230%22%20cy%3D%22205%22%20rx%3D%2228%22%20ry%3D%2242%22%2F%3E%3C%2Fg%3E%3Cg%20stroke%3D%22%2326313d%22%20stroke-width%3D%225%22%20fill%3D%22none%22%20stroke-linecap%3D%22round%22%3E%3C%2Fg%3E%3Crect%20x%3D%2218%22%20y%3D%2218%22%20width%3D%22364%22%20height%3D%2234%22%20rx%3D%2210%22%20fill%3D%22%230d2741%22%2F%3E%3Ctext%20x%3D%22200%22%20y%3D%2241%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%2Csans-serif%22%20font-size%3D%2216%22%20font-weight%3D%22700%22%20fill%3D%22white%22%3EFASE%20INICIAL%20%E2%80%A2%20PUXADA%20ALTA%20PRONADA%3C%2Ftext%3E%3Ctext%20x%3D%22200%22%20y%3D%22398%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%2Csans-serif%22%20font-size%3D%2213%22%20fill%3D%22%23536273%22%3EEQUIPAMENTO%3A%20LAT%20PULLDOWN%3C%2Ftext%3E%3C%2Fsvg%3E","data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20400%20420%22%20role%3D%22img%22%20aria-label%3D%22Remada%20articulada%20%E2%80%94%20fase%20inicial%22%3E%3Crect%20width%3D%22400%22%20height%3D%22420%22%20fill%3D%22%23f7f9fb%22%2F%3E%3Cg%20stroke%3D%22%237b8794%22%20stroke-width%3D%228%22%20fill%3D%22none%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Crect%20x%3D%2265%22%20y%3D%22300%22%20width%3D%22270%22%20height%3D%2218%22%20rx%3D%228%22%2F%3E%3Cpath%20d%3D%22M95%20300V210H135L170%20290M305%20300V205H270%22%2F%3E%3Cpath%20d%3D%22M90%20205H60M310%20205H340%22%2F%3E%3C%2Fg%3E%3Cg%20transform%3D%22translate%280%2025%29%22%20stroke%3D%22%2339424e%22%20stroke-width%3D%2210%22%20fill%3D%22%23e9edf2%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Ccircle%20cx%3D%22200%22%20cy%3D%22140%22%20r%3D%2228%22%2F%3E%3Cpath%20d%3D%22M200%20168L200%20250M200%20190L135%20120M200%20190L265%20120M200%20250L165%20350M200%20250L235%20350%22%2F%3E%3C%2Fg%3E%3Cg%20fill%3D%22%23d9534f%22%20opacity%3D%22.82%22%3E%3Cellipse%20cx%3D%22178%22%20cy%3D%22215%22%20rx%3D%2224%22%20ry%3D%2234%22%2F%3E%3Cellipse%20cx%3D%22222%22%20cy%3D%22215%22%20rx%3D%2224%22%20ry%3D%2234%22%2F%3E%3C%2Fg%3E%3Cg%20stroke%3D%22%2326313d%22%20stroke-width%3D%225%22%20fill%3D%22none%22%20stroke-linecap%3D%22round%22%3E%3C%2Fg%3E%3Crect%20x%3D%2218%22%20y%3D%2218%22%20width%3D%22364%22%20height%3D%2234%22%20rx%3D%2210%22%20fill%3D%22%230d2741%22%2F%3E%3Ctext%20x%3D%22200%22%20y%3D%2241%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%2Csans-serif%22%20font-size%3D%2216%22%20font-weight%3D%22700%22%20fill%3D%22white%22%3EFASE%20INICIAL%20%E2%80%A2%20REMADA%20ARTICULADA%3C%2Ftext%3E%3Ctext%20x%3D%22200%22%20y%3D%22398%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%2Csans-serif%22%20font-size%3D%2213%22%20fill%3D%22%23536273%22%3EEQUIPAMENTO%3A%20MACHINE%20ROW%3C%2Ftext%3E%3C%2Fsvg%3E","data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20400%20420%22%20role%3D%22img%22%20aria-label%3D%22Puxada%20neutra%20%E2%80%94%20fase%20inicial%22%3E%3Crect%20width%3D%22400%22%20height%3D%22420%22%20fill%3D%22%23f7f9fb%22%2F%3E%3Cg%20stroke%3D%
