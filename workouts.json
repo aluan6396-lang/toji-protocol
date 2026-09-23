@@ -1,0 +1,565 @@
+[
+  {
+    "day": "01",
+    "name": "COSTAS + BÍCEPS",
+    "focus": "Largura, espessura e braços",
+    "items": [
+      [
+        "Puxada alta pronada",
+        "Lat Pulldown",
+        "4×6–10",
+        "1–3",
+        "90–120s",
+        "Costas",
+        "Latíssimo do dorso",
+        "Puxe os cotovelos para baixo, mantendo o tronco estável.",
+        "Lat_Pulldown"
+      ],
+      [
+        "Remada articulada",
+        "Machine Row",
+        "3×8–12",
+        "1–3",
+        "90–120s",
+        "Costas",
+        "Romboides + trapézio médio",
+        "Leve os cotovelos para trás sem perder o controle da volta.",
+        "Lever_Seated_Row"
+      ],
+      [
+        "Puxada neutra",
+        "Neutral Lat Pulldown",
+        "3×8–12",
+        "1–3",
+        "90–120s",
+        "Costas",
+        "Latíssimo do dorso",
+        "Pense em levar os cotovelos para o bolso.",
+        "Close_Grip_Lat_Pulldown"
+      ],
+      [
+        "Remada unilateral",
+        "One Arm Cable Row",
+        "3×10–12",
+        "1–2",
+        "75–90s",
+        "Costas",
+        "Latíssimo + romboides",
+        "Alongue na frente e reme sem girar o tronco.",
+        "Cable_One_Arm_Row"
+      ],
+      [
+        "Pullover na polia",
+        "Cable Pullover",
+        "2×12–15",
+        "1–2",
+        "60–90s",
+        "Costas",
+        "Latíssimo do dorso",
+        "Mantenha os braços quase estendidos e mova pelo ombro.",
+        "Cable_Pullover"
+      ],
+      [
+        "Rosca inclinada",
+        "Incline Dumbbell Curl",
+        "3×8–12",
+        "1–2",
+        "75–90s",
+        "Bíceps",
+        "Cabeça longa",
+        "Deixe o braço atrás do tronco e suba sem balançar.",
+        "Incline_Dumbbell_Curl"
+      ],
+      [
+        "Rosca Scott",
+        "Preacher Curl",
+        "3×8–12",
+        "1–2",
+        "75–90s",
+        "Bíceps",
+        "Bíceps + braquial",
+        "Apoie o braço e controle completamente a descida.",
+        "Preacher_Curl"
+      ],
+      [
+        "Rosca martelo",
+        "Hammer Curl",
+        "2×10–15",
+        "1–2",
+        "60–75s",
+        "Bíceps",
+        "Braquial + braquiorradial",
+        "Pegada neutra e cotovelos próximos ao corpo.",
+        "Hammer_Curl"
+      ]
+    ]
+  },
+  {
+    "day": "02",
+    "name": "PEITO + OMBROS + TRÍCEPS",
+    "focus": "Peitoral, deltoides e três cabeças do tríceps",
+    "items": [
+      [
+        "Supino inclinado",
+        "Incline Press",
+        "4×6–10",
+        "1–3",
+        "90–120s",
+        "Peito",
+        "Peitoral clavicular",
+        "Desça com controle e empurre mantendo as escápulas estáveis.",
+        "Incline_Dumbbell_Bench_Press"
+      ],
+      [
+        "Supino máquina",
+        "Chest Press",
+        "3×8–12",
+        "1–2",
+        "90–120s",
+        "Peito",
+        "Peitoral maior",
+        "Ajuste o assento para as alças ficarem próximas ao meio do peito.",
+        "Lever_Chest_Press"
+      ],
+      [
+        "Crucifixo na máquina",
+        "Pec Deck",
+        "3×10–15",
+        "1–2",
+        "60–90s",
+        "Peito",
+        "Peitoral maior",
+        "Abra até sentir alongamento confortável e feche sem impulso.",
+        "Lever_Pec_Deck_Fly"
+      ],
+      [
+        "Desenvolvimento",
+        "Shoulder Press",
+        "3×6–10",
+        "1–3",
+        "90–120s",
+        "Ombros",
+        "Deltoide anterior + lateral",
+        "Pressione para cima sem transformar o movimento em balanço.",
+        "Lever_Shoulder_Press"
+      ],
+      [
+        "Elevação lateral",
+        "Lateral Raise",
+        "4×10–20",
+        "0–2",
+        "60–75s",
+        "Ombros",
+        "Deltoide lateral",
+        "Conduza pelos cotovelos e pare antes de perder a posição.",
+        "Dumbbell_Lateral_Raise"
+      ],
+      [
+        "Crucifixo inverso",
+        "Reverse Pec Deck",
+        "3×12–20",
+        "0–2",
+        "60–75s",
+        "Ombros",
+        "Deltoide posterior",
+        "Abra os braços mantendo o pescoço relaxado.",
+        "Reverse_Pec_Deck"
+      ],
+      [
+        "Tríceps testa",
+        "Lying Triceps Extension",
+        "3×8–12",
+        "1–2",
+        "75–90s",
+        "Tríceps",
+        "Cabeça longa + lateral + medial",
+        "Flexione o cotovelo mantendo o braço relativamente fixo.",
+        "EZ_Bar_Lying_Triceps_Extension"
+      ],
+      [
+        "Extensão acima da cabeça",
+        "Overhead Cable Extension",
+        "3×10–15",
+        "0–2",
+        "60–90s",
+        "Tríceps",
+        "Cabeça longa",
+        "Deixe o cotovelo apontado para frente e estenda sem abrir.",
+        "Cable_Overhead_Triceps_Extension"
+      ],
+      [
+        "Pushdown com corda",
+        "Rope Pushdown",
+        "2×10–15",
+        "0–2",
+        "60–90s",
+        "Tríceps",
+        "Lateral + medial",
+        "Estenda até o final e mantenha os ombros quietos.",
+        "Rope_Pushdown"
+      ]
+    ]
+  },
+  {
+    "day": "03",
+    "name": "PERNAS + ABDÔMEN",
+    "focus": "Quadríceps, posteriores, glúteos e core",
+    "items": [
+      [
+        "Agachamento / Hack Squat",
+        "Hack Squat",
+        "4×6–10",
+        "1–3",
+        "120s",
+        "Pernas",
+        "Quadríceps + glúteos",
+        "Desça com controle e mantenha o pé inteiro apoiado.",
+        "Hack_Squat"
+      ],
+      [
+        "Leg Press",
+        "Leg Press",
+        "3×8–12",
+        "1–2",
+        "90–120s",
+        "Pernas",
+        "Quadríceps + glúteos",
+        "Desça até a amplitude que preserve sua posição pélvica.",
+        "Leg_Press"
+      ],
+      [
+        "Cadeira extensora",
+        "Leg Extension",
+        "3×10–15",
+        "0–2",
+        "60–75s",
+        "Pernas",
+        "Quadríceps",
+        "Estenda controlando a volta e sem chutar a carga.",
+        "Leg_Extension"
+      ],
+      [
+        "Stiff / RDL",
+        "Romanian Deadlift",
+        "3×6–10",
+        "1–3",
+        "120s",
+        "Pernas",
+        "Posteriores + glúteos",
+        "Leve o quadril para trás mantendo a coluna neutra.",
+        "Romanian_Deadlift"
+      ],
+      [
+        "Mesa flexora",
+        "Lying Leg Curl",
+        "3×10–15",
+        "0–2",
+        "60–90s",
+        "Pernas",
+        "Posteriores",
+        "Flexione o joelho sem tirar o quadril do banco.",
+        "Lying_Leg_Curl"
+      ],
+      [
+        "Hip Thrust",
+        "Hip Thrust",
+        "2–3×8–12",
+        "1–2",
+        "90s",
+        "Pernas",
+        "Glúteos",
+        "Finalize com extensão do quadril sem hiperestender a lombar.",
+        "Barbell_Hip_Thrust"
+      ],
+      [
+        "Panturrilha em pé",
+        "Standing Calf Raise",
+        "3×8–15",
+        "0–2",
+        "60–75s",
+        "Pernas",
+        "Gastrocnêmio + sóleo",
+        "Faça uma pausa no alto e alongue com controle.",
+        "Standing_Calf_Raise"
+      ],
+      [
+        "Crunch na polia",
+        "Cable Crunch",
+        "3×10–15",
+        "1–2",
+        "60s",
+        "Abdômen",
+        "Reto abdominal",
+        "Pense em aproximar costelas e pelve, não apenas puxar com os braços.",
+        "Cable_Crunch"
+      ],
+      [
+        "Elevação de pernas",
+        "Hanging Leg Raise",
+        "3×8–15",
+        "1–2",
+        "60s",
+        "Abdômen",
+        "Reto abdominal + flexores",
+        "Evite balançar e controle a descida.",
+        "Hanging_Leg_Raise"
+      ],
+      [
+        "Prancha",
+        "Plank",
+        "2×30–60s",
+        "—",
+        "45–60s",
+        "Abdômen",
+        "Core",
+        "Mantenha costelas e pelve organizadas durante todo o tempo.",
+        "Front_Plank"
+      ]
+    ]
+  },
+  {
+    "day": "04",
+    "name": "COSTAS + OMBROS + BÍCEPS",
+    "focus": "V-taper e densidade",
+    "items": [
+      [
+        "Barra fixa / puxada",
+        "Pull Up",
+        "4×6–10",
+        "1–3",
+        "90–120s",
+        "Costas",
+        "Latíssimo do dorso",
+        "Comece com escápulas ativas e leve o peito em direção à barra.",
+        "Pull_Up"
+      ],
+      [
+        "Remada apoiada no peito",
+        "Chest Supported Row",
+        "3×8–12",
+        "1–2",
+        "90–120s",
+        "Costas",
+        "Trapézio médio + romboides",
+        "Use o apoio para eliminar balanço e concentrar na remada.",
+        "Chest_Supported_Row"
+      ],
+      [
+        "Puxada unilateral",
+        "Single Arm Lat Pulldown",
+        "3×10–12",
+        "1–2",
+        "75–90s",
+        "Costas",
+        "Latíssimo",
+        "Puxe o cotovelo para baixo e ligeiramente para trás.",
+        "One_Arm_Lat_Pulldown"
+      ],
+      [
+        "Pullover",
+        "Cable Pullover",
+        "2×12–15",
+        "1–2",
+        "60–90s",
+        "Costas",
+        "Latíssimo",
+        "Controle o alongamento e não transforme em tríceps.",
+        "Straight_Arm_Pulldown"
+      ],
+      [
+        "Elevação lateral na polia",
+        "Cable Lateral Raise",
+        "4×12–20",
+        "0–2",
+        "60s",
+        "Ombros",
+        "Deltoide lateral",
+        "Mantenha tensão contínua e movimento limpo.",
+        "Cable_Lateral_Raise"
+      ],
+      [
+        "Elevação lateral máquina",
+        "Machine Lateral Raise",
+        "3×12–20",
+        "0–2",
+        "60s",
+        "Ombros",
+        "Deltoide lateral",
+        "Suba com os cotovelos e não com as mãos.",
+        "Lever_Lateral_Raise"
+      ],
+      [
+        "Crucifixo inverso",
+        "Rear Delt Fly",
+        "3×12–20",
+        "0–2",
+        "60s",
+        "Ombros",
+        "Deltoide posterior",
+        "Abra sem elevar os ombros em direção às orelhas.",
+        "Dumbbell_Rear_Delt_Fly"
+      ],
+      [
+        "Rosca direta",
+        "Barbell Curl",
+        "3×6–10",
+        "1–2",
+        "75–90s",
+        "Bíceps",
+        "Bíceps braquial",
+        "Mantenha o cotovelo estável e evite inclinar o tronco.",
+        "Barbell_Curl"
+      ],
+      [
+        "Rosca Bayesian",
+        "Bayesian Curl",
+        "3×10–15",
+        "0–2",
+        "60–75s",
+        "Bíceps",
+        "Cabeça longa",
+        "Deixe o braço atrás do corpo e mantenha tensão no alongamento.",
+        "Cable_Bayesian_Curl"
+      ],
+      [
+        "Rosca martelo",
+        "Hammer Curl",
+        "2×10–15",
+        "0–2",
+        "60–75s",
+        "Bíceps",
+        "Braquial + braquiorradial",
+        "Suba sem girar a mão.",
+        "Hammer_Curl"
+      ]
+    ]
+  },
+  {
+    "day": "05",
+    "name": "PEITO + BRAÇOS + PERNAS",
+    "focus": "Volume complementar e acabamento",
+    "items": [
+      [
+        "Supino inclinado",
+        "Incline Press",
+        "3×6–10",
+        "1–3",
+        "90–120s",
+        "Peito",
+        "Peitoral clavicular",
+        "Desça com controle e mantenha o peito alto.",
+        "Incline_Dumbbell_Bench_Press"
+      ],
+      [
+        "Supino reto",
+        "Flat Bench Press",
+        "3×8–12",
+        "1–2",
+        "90–120s",
+        "Peito",
+        "Peitoral maior",
+        "Mantenha escápulas firmes e punhos alinhados.",
+        "Barbell_Bench_Press"
+      ],
+      [
+        "Crossover",
+        "Cable Crossover",
+        "2×12–15",
+        "0–2",
+        "60–75s",
+        "Peito",
+        "Peitoral maior",
+        "Feche os braços em arco e contraia o peito.",
+        "Cable_Crossover"
+      ],
+      [
+        "Paralelas / máquina assistida",
+        "Assisted Dip",
+        "3×6–12",
+        "1–2",
+        "90s",
+        "Peito + tríceps",
+        "Peitoral inferior + tríceps",
+        "Desça com controle e mantenha os ombros confortáveis.",
+        "Assisted_Dip"
+      ],
+      [
+        "Extensão acima da cabeça",
+        "Overhead Triceps Extension",
+        "3×10–15",
+        "0–2",
+        "60–90s",
+        "Tríceps",
+        "Cabeça longa",
+        "Use amplitude controlada e mantenha o cotovelo organizado.",
+        "Dumbbell_Overhead_Triceps_Extension"
+      ],
+      [
+        "Pushdown",
+        "Cable Pushdown",
+        "2×10–15",
+        "0–2",
+        "60–90s",
+        "Tríceps",
+        "Lateral + medial",
+        "Estenda completamente sem jogar o ombro para frente.",
+        "Cable_Pushdown"
+      ],
+      [
+        "Rosca Scott",
+        "Preacher Curl",
+        "3×8–12",
+        "1–2",
+        "75–90s",
+        "Bíceps",
+        "Bíceps + braquial",
+        "Controle a parte baixa sem relaxar totalmente a tensão.",
+        "Preacher_Curl"
+      ],
+      [
+        "Rosca inclinada",
+        "Incline Dumbbell Curl",
+        "3×8–12",
+        "1–2",
+        "75–90s",
+        "Bíceps",
+        "Cabeça longa",
+        "Evite avançar o cotovelo durante a subida.",
+        "Incline_Dumbbell_Curl"
+      ],
+      [
+        "Cadeira extensora",
+        "Leg Extension",
+        "3×10–15",
+        "0–2",
+        "60–75s",
+        "Pernas",
+        "Quadríceps",
+        "Controle a descida e mantenha o quadril apoiado.",
+        "Leg_Extension"
+      ],
+      [
+        "Mesa flexora",
+        "Lying Leg Curl",
+        "3×10–15",
+        "0–2",
+        "60–90s",
+        "Pernas",
+        "Posteriores",
+        "Mantenha o quadril estável durante a repetição.",
+        "Lying_Leg_Curl"
+      ],
+      [
+        "Panturrilha",
+        "Standing Calf Raise",
+        "3×10–20",
+        "0–2",
+        "60–75s",
+        "Pernas",
+        "Panturrilhas",
+        "Amplitude completa e pausa no pico da contração.",
+        "Standing_Calf_Raise"
+      ]
+    ]
+  }
+]
