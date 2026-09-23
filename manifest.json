@@ -1,15 +1,6 @@
 {
-  "name":"TOJI PROTOCOL — 5X SEMANA",
-  "short_name":"TOJI PROTOCOL",
-  "description":"Protocolo de treino 5x por semana com 48 exercícios.",
-  "start_url":"./",
-  "scope":"./",
-  "display":"standalone",
-  "orientation":"portrait",
-  "background_color":"#f5f7fa",
-  "theme_color":"#0b46c9",
-  "icons":[
-    {"src":"icon-192.png","sizes":"192x192","type":"image/png","purpose":"any maskable"},
-    {"src":"icon-512.png","sizes":"512x512","type":"image/png","purpose":"any maskable"}
-  ]
+"name":"TOJI PROTOCOL — 5X SEMANA",
+"short_name":"TOJI PROTOCOL",
+"description":"Protocolo de treino 5x por semana com 48 exercícios.",
+"start_url":"./","scope":"./","display":"standalone","orientation":"portrait","background_color":"#090909","theme_color":"#0b0b0b"
 }
