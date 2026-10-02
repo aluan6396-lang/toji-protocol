@@ -1,14 +1,1 @@
-{
-  "name": "TOJI PROTOCOL — 5X SEMANA",
-  "short_name": "TOJI PROTOCOL",
-  "start_url": "./",
-  "scope": "./",
-  "display": "standalone",
-  "background_color": "#080808",
-  "theme_color": "#e3262e",
-  "description": "Protocolo de treino 5x por semana.",
-  "icons": [
-    {"src":"icon-192.png","sizes":"192x192","type":"image/png","purpose":"any maskable"},
-    {"src":"icon-512.png","sizes":"512x512","type":"image/png","purpose":"any maskable"}
-  ]
-}
+{"name":"TOJI PROTOCOL — 5X SEMANA","short_name":"TOJI PROTOCOL","start_url":"./?v=4","scope":"./","display":"standalone","background_color":"#080808","theme_color":"#e3262e","description":"TOJI PROTOCOL — 5X SEMANA: treino, progresso e recursos Premium.","icons":[{"src":"icon-192.png","sizes":"192x192","type":"image/png","purpose":"any maskable"},{"src":"icon-512.png","sizes":"512x512","type":"image/png","purpose":"any maskable"}]}

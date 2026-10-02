@@ -1,4 +1,4 @@
-const CACHE = 'toji-foundation-v2';
+const CACHE = 'toji-foundation-v4';
 const CORE = [
   './',
   './index.html',
@@ -7,7 +7,9 @@ const CORE = [
   './db.json',
   './manifest.json',
   './icon-192.png',
-  './icon-512.png'
+  './icon-512.png',
+  './privacidade.html',
+  './termos.html'
 ];
 
 self.addEventListener('install', event => {
